@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0402052B-C8F0-407B-85AD-C3B1C9EE2BE0}</ProjectGuid>
+    <ProjectGuid>{D1F5B952-FEC2-4758-9BF0-0771FF37A0C4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HotelSystem.Models</RootNamespace>
@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="BedOptions.cs" />
     <Compile Include="Hotel.cs" />
+    <Compile Include="HotelRooms.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="Parking.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

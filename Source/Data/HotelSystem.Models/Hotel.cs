@@ -6,10 +6,12 @@
     public class Hotel
     {
         private ICollection<Rating> ratings;
+        private ICollection<HotelRooms> rooms;
 
         public Hotel()
         {
             this.ratings = new HashSet<Rating>();
+            this.rooms = new HashSet<HotelRooms>();
         }
 
         [Key]
@@ -20,7 +22,7 @@
         public string Name { get; set; }
 
         [Required]
-        public Location Lcation { get; set; }
+        public Location Location { get; set; }
 
         [Required]
         [MaxLength(20)]
@@ -38,6 +40,12 @@
         {
             get { return this.ratings; }
             set { this.ratings = value; }
+        }
+
+        public virtual ICollection<HotelRooms> Rooms
+        {
+            get { return this.rooms; }
+            set { this.rooms = value; }
         }
     }
 }

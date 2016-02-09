@@ -1,4 +1,5 @@
-﻿using HotelSystem.Web.Models;
+﻿using HotelSystem.Data;
+using HotelSystem.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace HotelSystem.Web.Controllers
     {
         public ActionResult Index()
         {
-            var db = new ApplicationDbContext();
+            var db = new HotelSystemDbContext();
             var usersCount = db.Users.Count();
             return View();
         }

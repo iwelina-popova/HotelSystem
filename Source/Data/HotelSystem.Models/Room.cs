@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HotelSystem.Models
+﻿namespace HotelSystem.Models
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
     public class Room
     {
         private ICollection<BedOptions> bedOptions;
@@ -53,10 +49,11 @@ namespace HotelSystem.Models
         public bool Minibar { get; set; }
 
         public bool FreeWiFi { get; set; }
-        
+
         //End Room Features
 
-        public virtual ICollection<BedOptions> BedOptions {
+        public virtual ICollection<BedOptions> BedOptions
+        {
             get { return this.bedOptions; }
             set { this.bedOptions = value; }
         }

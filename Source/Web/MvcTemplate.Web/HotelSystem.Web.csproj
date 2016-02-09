@@ -196,7 +196,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -277,8 +276,12 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\HotelSystem.Data\HotelSystem.Data.csproj">
+      <Project>{ba438118-3e22-466f-aa3b-cfd4c0a61cb0}</Project>
+      <Name>HotelSystem.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\HotelSystem.Models\HotelSystem.Models.csproj">
-      <Project>{0402052b-c8f0-407b-85ad-c3b1c9ee2be0}</Project>
+      <Project>{d1f5b952-fec2-4758-9bf0-0771ff37a0c4}</Project>
       <Name>HotelSystem.Models</Name>
     </ProjectReference>
   </ItemGroup>
