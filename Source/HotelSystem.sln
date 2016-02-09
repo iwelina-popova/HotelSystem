@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{A5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelSystem.Web", "Web\MvcTemplate.Web\HotelSystem.Web.csproj", "{67CC40FF-4933-4F83-810E-357E6BC8B973}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelSystem.Models", "Data\HotelSystem.Models\HotelSystem.Models.csproj", "{0402052B-C8F0-407B-85AD-C3B1C9EE2BE0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,11 +25,16 @@ Global
 		{67CC40FF-4933-4F83-810E-357E6BC8B973}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67CC40FF-4933-4F83-810E-357E6BC8B973}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67CC40FF-4933-4F83-810E-357E6BC8B973}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0402052B-C8F0-407B-85AD-C3B1C9EE2BE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0402052B-C8F0-407B-85AD-C3B1C9EE2BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0402052B-C8F0-407B-85AD-C3B1C9EE2BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0402052B-C8F0-407B-85AD-C3B1C9EE2BE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{67CC40FF-4933-4F83-810E-357E6BC8B973} = {99FC36D3-D963-4263-BF69-8BD11F801E2B}
+		{0402052B-C8F0-407B-85AD-C3B1C9EE2BE0} = {8103CD5B-2A92-401C-A854-A31E0FD44DE6}
 	EndGlobalSection
 EndGlobal
