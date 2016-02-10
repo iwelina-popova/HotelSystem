@@ -1,19 +1,15 @@
-﻿using HotelSystem.Data;
-using HotelSystem.Web.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace HotelSystem.Web.Controllers
+﻿namespace HotelSystem.Web.Controllers
 {
-    public class HomeController : Controller
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using HotelSystem.Web.Infrastructure.Mapping;
+    using HotelSystem.Web.ViewModels.Home;
+
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
-            var db = new HotelSystemDbContext();
-            var usersCount = db.Users.Count();
             return View();
         }
 

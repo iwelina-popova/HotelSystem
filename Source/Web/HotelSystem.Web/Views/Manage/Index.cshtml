@@ -1,4 +1,4 @@
-﻿@model HotelSystem.Web.Models.IndexViewModel
+﻿@model HotelSystem.Web.ViewModels.Manage.IndexViewModel
 @{
     ViewBag.Title = "Manage";
 }
@@ -13,14 +13,7 @@
         <dt>Password:</dt>
         <dd>
             [
-            @if (Model.HasPassword)
-            {
-                @Html.ActionLink("Change your password", "ChangePassword")
-            }
-            else
-            {
-                @Html.ActionLink("Create", "SetPassword")
-            }
+            @(Model.HasPassword ? Html.ActionLink("Change your password", "ChangePassword") : Html.ActionLink("Create", "SetPassword"))
             ]
         </dd>
         <dt>External Logins:</dt>

@@ -1,11 +1,8 @@
-namespace HotelSystem.Data.Migrations
+﻿namespace HotelSystem.Data.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<HotelSystem.Data.HotelSystemDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<HotelSystemDbContext>
     {
         public Configuration()
         {
@@ -13,20 +10,8 @@ namespace HotelSystem.Data.Migrations
             this.AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(HotelSystem.Data.HotelSystemDbContext context)
+        protected override void Seed(HotelSystemDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
         }
     }
 }
