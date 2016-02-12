@@ -21,6 +21,10 @@
         public string Name { get; set; }
 
         [Required]
+        [MaxLength(2000)]
+        public string Description { get; set; }
+
+        [Required]
         public Location Location { get; set; }
 
         [Required]
@@ -30,10 +34,6 @@
         [Required]
         [MaxLength(50)]
         public string Email { get; set; }
-
-        public int ParkingId { get; set; }
-
-        public virtual Parking Parking { get; set; }
 
         public virtual ICollection<Rating> Ratings
         {

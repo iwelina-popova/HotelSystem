@@ -24,8 +24,6 @@
 
         public IDbSet<Location> Locations { get; set; }
 
-        public IDbSet<Parking> Parkings { get; set; }
-
         public static HotelSystemDbContext Create()
         {
             return new HotelSystemDbContext();

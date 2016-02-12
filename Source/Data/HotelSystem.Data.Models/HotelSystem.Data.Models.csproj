@@ -63,8 +63,8 @@
     <Compile Include="Hotel.cs" />
     <Compile Include="HotelRooms.cs" />
     <Compile Include="Location.cs" />
-    <Compile Include="Parking.cs" />
     <Compile Include="Rating.cs" />
+    <Compile Include="Reservation.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="RoomType.cs" />
     <Compile Include="User.cs" />

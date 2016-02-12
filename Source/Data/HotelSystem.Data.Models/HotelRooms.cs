@@ -1,7 +1,5 @@
 ﻿namespace HotelSystem.Data.Models
 {
-    using System.ComponentModel.DataAnnotations;
-
     using HotelSystem.Data.Common.Models;
 
     public class HotelRooms : BaseModel<int>
