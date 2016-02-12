@@ -3,27 +3,39 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <title>hotel-fortune bootstrap Design website | Home </title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pinyon+Script' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
+    @Styles.Render("~/Content/css/custom")
+    @Scripts.Render("~/bundles/jquery")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+    <div class="header">
+        <div class="top-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html"><img src="../../Images/logo.png" /></a>
+                </div>
+                <span class="menu"> </span>
+                <div class="m-clear"></div>
+                <div class="top-menu">
+                    <ul>
+                        <li class="active"><a href="index.html">START</a></li>
+                        <li><a class="scroll" href="facilities.html">FACILITIES</a></li>
+                        <li><a class="scroll" href="restaurant.html">RESTAURANT</a></li>
+                        <li><a class="scroll" href="conference.html">CONFERENCE</a></li>
+                        <li><a class="scroll" href="booking.html">BOOKING</a></li>
+                        <li><a class="scroll" href="contact.html">CONTACT US</a></li>
+                    </ul>
+                    <script>
+					$("span.menu").click(function(){
+						$(".top-menu ul").slideToggle(200);
+					});
+                    </script>
+                </div>
+                <div class="clearfix"></div>
             </div>
         </div>
     </div>
@@ -31,12 +43,58 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <div class="fotter-info">
+                <div class="container">
+                    <div class="col-md-5 details">
+                        <div class="hotel-info">
+                            <h4>ABOUT THIS HOTEL</h4>
+                            <p>Suspendisse erat mi, tincidunt sit amet massa quis, commodo fermentum diam. Sed nec dui nec nunc tempor interdum.</p>
+                            <p>Ut vulputate augue urna, ut porta dolor imperdiet a. Vestibulum nec leo eu magna aliquam ornare.</p>
+                        </div>
+                        <div class="news">
+                            <h4>LATEST NEWS</h4>
+                            <h5>Grand Hotel Joins DeluxelHotels</h5>
+                            <a href="#">15 AUG</a>
+                            <h5>Happy Chirstmas To Everyone</h5>
+                            <a href="#">15 AUG</a>
+                            <h5>Best Places To Visit 2014</h5>
+                            <a href="#">15 AUG</a>
+                            <h5>Various Offers</h5>
+                            <a href="#">15 AUG</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="col-md-7 details">
+                        <div class="join">
+                            <h4>JOIN DELUXEHOTELS</h4>
+                            <p>
+                                Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus vestibulum blandit egestas.
+                                Nam id lectus vel orci luctus consectetur eget id elit. In tortor odio, pellentesque eu arcu sit amet, lacinia euismod nisi. Aliquam sodales tristique mauris ac fermentum.
+                                Donec vel varius ipsum. Pellentesque vitae mollis massa.
+                            </p>
+                            <p>There is no costs or whatsoever so sign up today!</p>
+                            <a href="#">READ MORE</a>
+                        </div>
+                        <div class="member">
+                            <h4>MEMBERS AREA</h4>
+                            <form>
+                                <p>Username</p>
+                                <input type="text" placeholder="" required />
+                                <p>Password</p>
+                                <input type="password" placeholder="" required />
+                                <input type="submit" value="LOGIN" />
+                            </form>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <h6>Template by mee</h6>
+            </div>
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/custom")
     @RenderSection("scripts", required: false)
 </body>
 </html>
