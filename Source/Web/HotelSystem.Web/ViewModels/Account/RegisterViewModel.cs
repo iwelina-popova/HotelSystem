@@ -32,7 +32,18 @@
         public string LastName { get; set; }
 
         [Required]
-        [Display(Name = "Birth date")]
-        public DateTime BirthDate { get; set; }
+        [Range(1, 31, ErrorMessage = "The {0} must be in range from 1 to 31.")]
+        [Display(Name = "Day")]
+        public int Day { get; set; }
+
+        [Required]
+        [Range(1, 12, ErrorMessage = "The {0} must be in range from 1 to 12.")]
+        [Display(Name = "Month")]
+        public int Month { get; set; }
+
+        [Required]
+        [Range(1, 12, ErrorMessage = "The {0} is not valid.")]
+        [Display(Name = "Year")]
+        public int Year { get; set; }
     }
 }

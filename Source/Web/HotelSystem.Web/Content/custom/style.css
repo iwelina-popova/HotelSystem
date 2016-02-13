@@ -1650,6 +1650,13 @@ select.arrival {
     margin-right: 2%;
 }
 
+
+select.birth-date {
+    background: transparent;    
+    border: 1px solid #000;
+    color: #555555;
+}
+
 .booking-form, .booking-news {
     margin: 2em 0;
 }
@@ -3153,8 +3160,8 @@ select.arrival {
         }
 
     .custom-form input[type="submit"], .custom-form input[type="reset"] {
-        margin-top: 25px;
-        width: 100px !important;
+        margin: 25px 0 55px 0;
+        /*width: 100px !important;*/
         font-family: 'Open Sans', sans-serif;
         cursor: pointer;
         background: #242424;
@@ -3179,3 +3186,4 @@ select.arrival {
             background: #E7CB2C;
             border: 1px solid #E7CB2C;
         }
+
