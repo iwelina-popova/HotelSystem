@@ -18,11 +18,11 @@
             this.ratings = new HashSet<Rating>();
         }
 
-       // [Required]
+        [Required]
         [MaxLength(30)]
         public string FirstName { get; set; }
 
-       // [Required]
+        [Required]
         [MaxLength(30)]
         public string LastName { get; set; }
 

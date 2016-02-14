@@ -1,6 +1,5 @@
 ﻿namespace HotelSystem.Web.ViewModels.Account
 {
-    using System;
     using System.ComponentModel.DataAnnotations;
 
     public class RegisterViewModel
@@ -31,6 +30,10 @@
         [Display(Name = "Last name")]
         public string LastName { get; set; }
 
+        [StringLength(50, ErrorMessage = "The {0} is too long.")]
+        [Display(Name = "Phone")]
+        public string Phone { get; set; }
+
         [Required]
         [Range(1, 31, ErrorMessage = "The {0} must be in range from 1 to 31.")]
         [Display(Name = "Day")]
@@ -41,8 +44,7 @@
         [Display(Name = "Month")]
         public int Month { get; set; }
 
-        [Required]
-        [Range(1, 12, ErrorMessage = "The {0} is not valid.")]
+        [Required(ErrorMessage = "The {0} is not valid.")]
         [Display(Name = "Year")]
         public int Year { get; set; }
     }

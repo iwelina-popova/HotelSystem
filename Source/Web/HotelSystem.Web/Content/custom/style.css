@@ -393,7 +393,6 @@ select {
                 color: #9c9c9c;
             }
 
-}
 /* start soc_icons */
 .soc_icons {
     text-align: center;
@@ -700,7 +699,7 @@ p.para {
     border-bottom: 1px solid #939597;
 }
 
-    .package h3 {
+    .package h3, .contact-form h3 {
         font-family: 'Pinyon Script', cursive;
         font-size: 3.5em;
     }
@@ -895,7 +894,7 @@ p.para {
         }
 
 .join {
-    width: 56%;
+    width: 80%;
     float: left;
     text-align: left;
 }
@@ -1652,10 +1651,15 @@ select.arrival {
 
 
 select.birth-date {
-    background: transparent;    
+    background: transparent;
     border: 1px solid #000;
     color: #555555;
+    margin-top: 7px;
 }
+
+    select.birth-date:hover {
+        border-color: #FFD700;
+    }
 
 .booking-form, .booking-news {
     margin: 2em 0;
@@ -3137,6 +3141,11 @@ select.birth-date {
     margin-bottom: 25em;
 }
 
+    .custom-form label {
+        display: block;
+        text-transform: uppercase;
+    }
+
     .custom-form input[type="text"], .custom-form input[type="password"], .custom-form textarea {
         font-family: 'Open Sans', sans-serif;
         margin-top: 5px;
@@ -3186,4 +3195,3 @@ select.birth-date {
             background: #E7CB2C;
             border: 1px solid #E7CB2C;
         }
-

@@ -11,7 +11,7 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
-
+    using System;
     [Authorize]
     public class AccountController : BaseController
     {
@@ -170,7 +170,26 @@
         {
             if (this.ModelState.IsValid)
             {
-                var user = new User { UserName = model.Email, Email = model.Email };
+                var date = default(DateTime);
+                try
+                {
+                    date = new DateTime(model.Year, model.Month, model.Day);
+                }
+                catch (ArgumentOutOfRangeException ex)
+                {
+                    this.AddErrors(new IdentityResult(new string[] { "Invalid date." }));
+                    return this.View(model);
+                }
+
+                var user = new User
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    PhoneNumber = model.Phone,
+                    BirthDate = date
+                };
                 var result = await this.UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
