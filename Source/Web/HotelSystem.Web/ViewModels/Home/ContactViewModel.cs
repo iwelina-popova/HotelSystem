@@ -1,9 +1,17 @@
 ﻿namespace HotelSystem.Web.ViewModels.Home
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
+    using AutoMapper;
+    using HotelSystem.Data.Models;
+    using HotelSystem.Web.Infrastructure.Mapping;
 
-    public class ContactViewModel
+    public class ContactViewModel : IMapTo<Contact>
     {
+        [HiddenInput(DisplayValue = false)]
+        public int Id { get; set; }
+
         [Required]
         [StringLength(60, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
         [Display(Name = "Name")]

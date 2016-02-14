@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BedOptions.cs" />
-    <Compile Include="Conatct.cs" />
+    <Compile Include="Contact.cs" />
     <Compile Include="Hotel.cs" />
     <Compile Include="HotelRooms.cs" />
     <Compile Include="Location.cs" />

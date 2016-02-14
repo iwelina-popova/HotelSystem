@@ -4,7 +4,7 @@
 
     using HotelSystem.Data.Common.Models;
 
-    public class Conatct : BaseModel<int>
+    public class Contact : BaseModel<int>
     {
         [Required]
         [MaxLength(60)]

@@ -24,6 +24,6 @@
 
         void HardDelete(T entity);
 
-        void Save();
+        void SaveChanges();
     }
 }
