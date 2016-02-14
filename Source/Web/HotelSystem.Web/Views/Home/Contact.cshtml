@@ -1,4 +1,5 @@
-﻿@{
+﻿@model HotelSystem.Web.ViewModels.Home.ContactViewModel
+@{
     ViewBag.Title = "Contact";
 }
 
@@ -26,27 +27,28 @@
             <div class="contact_right">
                 <div class="contact-form">
                     <h3 class="style">Contact Us</h3>
-                    <form method="post" action="index.html">
+                    @using (Html.BeginForm("Contact", "Home", FormMethod.Post, new { @class= "custom-form", role = "form" }))
+                    {
                         <div>
-                            <span><label>NAME</label></span>
-                            <span><input name="userName" type="text" class="textbox"></span>
+                            @Html.LabelFor(m => m.Name)
+                            @Html.TextBoxFor(m => m.Name, new { @class = "textbox" })
                         </div>
                         <div>
-                            <span><label>E-MAIL</label></span>
-                            <span><input name="userEmail" type="text" class="textbox"></span>
+                            @Html.LabelFor(m => m.Email)
+                            @Html.TextBoxFor(m => m.Email, new { @class = "textbox" })
                         </div>
                         <div>
-                            <span><label>MOBILE</label></span>
-                            <span><input name="userPhone" type="text" class="textbox"></span>
+                            @Html.LabelFor(m => m.Phone)
+                            @Html.TextBoxFor(m => m.Phone, new { @class = "textbox" })
                         </div>
                         <div>
-                            <span><label>SUBJECT</label></span>
-                            <span><textarea name="userMsg"> </textarea></span>
+                            @Html.LabelFor(m => m.Subject)
+                            @Html.TextAreaFor(m => m.Subject, new { @class = "textbox" })
                         </div>
                         <div>
-                            <input type="submit" value="submit us">
+                            <input type="submit" value="Contact Us" />
                         </div>
-                    </form>
+                    }
                 </div>
             </div>
             <div class="clear"></div>

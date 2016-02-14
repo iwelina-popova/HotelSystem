@@ -20,11 +20,17 @@
             return this.View();
         }
 
+        // GET: /Home/Contact
         public ActionResult Contact()
         {
-            this.ViewBag.Message = "Your contact page.";
-
             return this.View();
         }
+
+        //public ActionResult Contact(ContactViewModel model)
+        //{
+        //    if (this.ModelState.IsValid)
+        //    {
+        //    }
+        //}
     }
 }
