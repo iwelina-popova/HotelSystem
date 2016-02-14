@@ -28,10 +28,6 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        @Html.ActionLink("My Profile", "MyProfile", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                    }
                     @if (User.IsInRole("Administrator"))
                     {
                         @Html.Action("Menu", "Admin", routeValues: new { Area = "Administration", @class = "navbar-brand" })
@@ -65,11 +61,7 @@
                     </script>
                 </div>
                 <div class="top-menu top-menu-right">
-                    <ul class="nav navbar-nav">
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            @Html.ActionLink("My Profile", "MyProfile", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                        }
+                    <ul class="nav navbar-nav">                       
                         @if (User.IsInRole("Administrator"))
                         {
                             @Html.Action("Menu", "Admin", routeValues: new { Area = "Administration", @class = "navbar-brand" })
