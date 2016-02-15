@@ -1,0 +1,38 @@
+﻿@model HotelSystem.Web.ViewModels.Hotels.IndexViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="rooms text-center">
+    <div class="container">
+        <h3>Our Hotels</h3>
+        <div class="room-grids">
+            @{
+                foreach (var hotel in Model.Hotels)
+                {
+                    <div class="col-md-4 room-sec">
+                        <a href="#"><img src=@hotel.Images.FirstOrDefault() alt="hotel image" /></a>
+                        <div class="caption">
+                            <span class="glyphicon glyphicon-star">@hotel.Rating</span>
+                            <a href="#">Info</a>
+                        </div>
+                        <h4>@hotel.Name</h4>
+                        <p>
+                            @if (hotel.Description.Length > 100)
+                            {
+                                @hotel.Description.Substring(0, 100)
+                                <span>...</span>
+                            }
+                            else
+                            {
+                                @hotel.Description
+                            }
+                        </p>
+
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+

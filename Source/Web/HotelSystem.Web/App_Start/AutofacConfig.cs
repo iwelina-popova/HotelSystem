@@ -9,9 +9,10 @@
 
     using HotelSystem.Data;
     using HotelSystem.Data.Common;
+    using HotelSystem.Services.Data.Contracts;
     using HotelSystem.Services.Web;
     using HotelSystem.Web.Controllers;
-    using Services.Data.Contracts;
+
     public static class AutofacConfig
     {
         public static void RegisterAutofac()

@@ -17,7 +17,6 @@
 
         public void AddContact(Contact contact)
         {
-            contact.CreatedOn = DateTime.UtcNow;
             this.contacts.Add(contact);
             this.contacts.SaveChanges();
         }

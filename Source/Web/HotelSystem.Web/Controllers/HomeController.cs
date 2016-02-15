@@ -1,14 +1,12 @@
 ﻿namespace HotelSystem.Web.Controllers
 {
-    using System.Linq;
+    using System.Web;
     using System.Web.Mvc;
 
-    using HotelSystem.Web.Infrastructure.Mapping;
+    using HotelSystem.Data.Models;
+    using HotelSystem.Services.Data.Contracts;
     using HotelSystem.Web.ViewModels.Home;
-    using System;
-    using Data.Models;
-    using Services.Data.Contracts;
-    using System.Web;
+
     public class HomeController : BaseController
     {
         private IHomeService contacts;
@@ -25,8 +23,6 @@
 
         public ActionResult About()
         {
-            this.ViewBag.Message = "Your application description page.";
-
             return this.View();
         }
 
@@ -46,7 +42,7 @@
                 this.contacts.AddContact(contact);
 
                 // TODO: Inform client information was successfully saved.
-                return this.View();
+                return this.RedirectToAction("Index");
             }
 
             throw new HttpException(400, "Invalid!");

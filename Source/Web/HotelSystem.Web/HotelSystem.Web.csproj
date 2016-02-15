@@ -200,6 +200,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Hotels\HotelsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
@@ -216,6 +217,9 @@
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\Home\ContactViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Hotels\HotelDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Hotels\HotelViewModel.cs" />
+    <Compile Include="ViewModels\Hotels\IndexViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\FactorViewModel.cs" />
@@ -262,6 +266,11 @@
     <Content Include="Images\c6.jpg" />
     <Content Include="Images\c66.jpg" />
     <Content Include="Images\det_pic.jpg" />
+    <Content Include="Images\Hotel-Paris\2241284-Hotel-Midnight-Hotel-Exterior-1-DEF.jpg" />
+    <Content Include="Images\Hotel-Paris\2241284-Moevenpick-Hotel-Paris-Neuilly-Hotel-Exterior-1-DEF.jpg" />
+    <Content Include="Images\Hotel-Paris\download.jpg" />
+    <Content Include="Images\Hotel-Paris\Hotel-Paris.jpg" />
+    <Content Include="Images\Hotel-Paris\images.jpg" />
     <Content Include="Images\hotel1.jpg" />
     <Content Include="Images\hotel2.jpg" />
     <Content Include="Images\icon.png" />
@@ -356,10 +365,11 @@
     <Content Include="Scripts\jquery-2.2.0.min.map" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Hotels\Index.cshtml" />
+    <Content Include="Views\Hotels\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

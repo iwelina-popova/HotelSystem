@@ -29,7 +29,7 @@
         private static void RegisterStyles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/Content/css/bootstrap").Include(
-               "~/Content/custom/bootstrap.css"));
+               "~/Content/bootstrap.css"));
             bundles.Add(new StyleBundle("~/Content/css/custom").Include(
                  "~/Content/custom/JFFormStyle-1.css",
                  "~/Content/custom/jquery-ui.css",

@@ -8,12 +8,12 @@
     public class Room : BaseModel<int>
     {
         private ICollection<BedOptions> bedOptions;
-        private ICollection<string> photosSource;
+        private ICollection<Image> photosSource;
 
         public Room()
         {
             this.bedOptions = new HashSet<BedOptions>();
-            this.photosSource = new HashSet<string>();
+            this.photosSource = new HashSet<Image>();
         }
 
         [Required]
@@ -59,7 +59,7 @@
             set { this.bedOptions = value; }
         }
 
-        public virtual ICollection<string> PhotosSource
+        public virtual ICollection<Image> PhotosSource
         {
             get { return this.photosSource; }
             set { this.photosSource = value; }

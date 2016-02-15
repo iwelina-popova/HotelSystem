@@ -9,11 +9,13 @@
     {
         private ICollection<Rating> ratings;
         private ICollection<HotelRooms> rooms;
+        private ICollection<Image> photosSource;
 
         public Hotel()
         {
             this.ratings = new HashSet<Rating>();
             this.rooms = new HashSet<HotelRooms>();
+            this.photosSource = new HashSet<Image>();
         }
 
         [Required]
@@ -34,6 +36,12 @@
         [Required]
         [MaxLength(50)]
         public string Email { get; set; }
+
+        public virtual ICollection<Image> PhotosSource
+        {
+            get { return this.photosSource; }
+            set { this.photosSource = value; }
+        }
 
         public virtual ICollection<Rating> Ratings
         {
