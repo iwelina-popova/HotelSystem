@@ -18,7 +18,7 @@
 
         public IDbSet<Hotel> Hotels { get; set; }
 
-        public IDbSet<HotelRooms> HotelRooms { get; set; }
+        public IDbSet<HotelRoom> HotelRooms { get; set; }
 
         public IDbSet<Room> Rooms { get; set; }
 

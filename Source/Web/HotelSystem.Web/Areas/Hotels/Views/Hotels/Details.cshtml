@@ -1,0 +1,121 @@
+﻿@model HotelSystem.Web.Areas.Hotels.ViewModels.Details.DetailsViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="confer">
+    <script>
+        $(window).load(function () {
+            $("#conference-slider").responsiveSlides({
+                auto: true,
+                manualControls: '#slider3-pager',
+            });
+        });
+    </script>
+    <div class="container">
+        <h2>
+            HOTEL<span>@Model.Hotel.Name</span>
+            <a class="label label-default">@Model.Hotel.Rating / 10</a>
+        </h2>
+        <div class="conference-slider">
+            <!-- Slideshow 3 -->
+            <ul class="conference-rslide" id="conference-slider">
+                @{
+                    foreach (var image in Model.Hotel.Images)
+                    {
+                        <li>
+                            <img src="../../../@image" alt="Hotel details images" />
+                        </li>
+                    }
+                }
+            </ul>
+            <!-- Slideshow 3 Pager -->
+            <ul id="slider3-pager">
+                @{
+                    foreach (var image in Model.Hotel.Images)
+                    {
+                        <li>
+                            <img src="../../../@image" alt="Hotel details images" />
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+        <h4>More About @Model.Hotel.Name</h4>
+        <p>@Model.Hotel.Description</p>
+    </div>
+</div>
+<div class="rooms text-center">
+    <div class="container">
+        <h3>Our Room Types</h3>
+        <div class="room-grids">
+            @{
+                foreach (var room in Model.Rooms)
+                {
+                    <div class="col-md-4 room-sec">
+                        <img class="custom-img" src="../../../@room.Images.FirstOrDefault()" alt="" />
+                        <h4>@room.RoomType</h4>
+                        <p>@room.Description</p>
+                        <ul class="items">
+                            @if (@room.AirConditioning)
+                            {
+                                <li><a href="#"><span class="img1"> </span></a></li>
+                            }
+                            @if (@room.HairDryer)
+                            {
+                                <li><a href="#"><span class="img2"> </span></a></li>
+                            }
+
+                            @if (@room.Iron)
+                            {
+                                <li><a href="#"><span class="img3"> </span></a></li>
+                            }
+                            @if (@room.TV)
+                            {
+                                <li><a href="#"><span class="img4"> </span></a></li>
+                            }
+                            @if (@room.FreeWiFi)
+                            {
+                                <li><a href="#"><span class="img5"> </span></a></li>
+                            }
+                        </ul>
+                    </div>
+                }
+            }
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+
+        $(window).load(function () {
+            $("#flexiselDemo1").flexisel({
+                visibleItems: 3,
+                animationSpeed: 1000,
+                autoPlay: true,
+                autoPlaySpeed: 3000,
+                pauseOnHover: true,
+                enableResponsiveBreakpoints: true,
+                responsiveBreakpoints: {
+                    portrait: {
+                        changePoint: 480,
+                        visibleItems: 1
+                    },
+                    landscape: {
+                        changePoint: 640,
+                        visibleItems: 2
+                    },
+                    tablet: {
+                        changePoint: 768,
+                        visibleItems: 3
+                    }
+                }
+            });
+
+        });
+    </script>
+}
+
+

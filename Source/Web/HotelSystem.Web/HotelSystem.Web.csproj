@@ -91,6 +91,10 @@
       <HintPath>..\..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RouteDebugger, Version=2.1.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\routedebugger.2.1.4.0\lib\net40\RouteDebugger.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -197,10 +201,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SmsService.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Hotels\HotelsAreaRegistration.cs" />
+    <Compile Include="Areas\Hotels\ViewModels\Details\DetailsViewModel.cs" />
+    <Compile Include="Areas\Hotels\ViewModels\Details\HotelRoomViewModel.cs" />
+    <Compile Include="Areas\Hotels\ViewModels\AllHotels\HotelViewModel.cs" />
+    <Compile Include="Areas\Hotels\ViewModels\AllHotels\IndexViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Hotels\HotelsController.cs" />
+    <Compile Include="Areas\Hotels\Controllers\HotelsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
@@ -215,11 +224,9 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
-    <Compile Include="ViewModels\Home\ContactViewModel.cs" />
+    <Compile Include="ViewModels\Home\ContactInputModel.cs" />
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
-    <Compile Include="ViewModels\Hotels\HotelDetailsViewModel.cs" />
-    <Compile Include="ViewModels\Hotels\HotelViewModel.cs" />
-    <Compile Include="ViewModels\Hotels\IndexViewModel.cs" />
+    <Compile Include="Areas\Hotels\ViewModels\Details\HotelDetailsViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\FactorViewModel.cs" />
@@ -312,6 +319,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Areas\Hotels\Views\web.config" />
+    <Content Include="Areas\Hotels\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\custom\JFCore.js" />
     <Content Include="Scripts\custom\JFForms.js" />
@@ -365,11 +374,13 @@
     <Content Include="Scripts\jquery-2.2.0.min.map" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Hotels\Index.cshtml" />
-    <Content Include="Views\Hotels\Details.cshtml" />
+    <Content Include="Areas\Hotels\Views\Hotels\Index.cshtml" />
+    <Content Include="Areas\Hotels\Views\Hotels\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Hotels\ViewModels\NewFolder1\" />
+    <Folder Include="Areas\Hotels\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

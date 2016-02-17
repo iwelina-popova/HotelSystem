@@ -176,7 +176,9 @@
                 {
                     date = new DateTime(model.Year, model.Month, model.Day);
                 }
+#pragma warning disable CS0168 // Variable is declared but never used
                 catch (ArgumentOutOfRangeException ex)
+#pragma warning restore CS0168 // Variable is declared but never used
                 {
                     this.AddErrors(new IdentityResult(new string[] { "Invalid date." }));
                     return this.View(model);

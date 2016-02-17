@@ -5,13 +5,13 @@
 
     using HotelSystem.Data.Common.Models;
 
-    public class Reservation : BaseModel<int>
+    public class Booking : BaseModel<int>
     {
-        public DateTime ReservedOn { get; set; }
+        public DateTime BookedOn { get; set; }
 
         public int HotelRoomsId { get; set; }
 
-        public virtual HotelRooms HotelRooms { get; set; }
+        public virtual HotelRoom HotelRooms { get; set; }
 
         [Required]
         [MaxLength(50)]

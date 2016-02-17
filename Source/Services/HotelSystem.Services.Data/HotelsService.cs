@@ -20,14 +20,12 @@
 
         public IQueryable<Hotel> GetAll()
         {
-            var all = this.hotels.All();
-            return all;
+            return this.hotels.All();
         }
 
-        public Hotel GetById(string id)
+        public Hotel GetById(int id)
         {
-            var intId = this.identifierProvider.DecodeId(id);
-            return this.hotels.GetById(intId);
+            return this.hotels.GetById(id);
         }
     }
 }

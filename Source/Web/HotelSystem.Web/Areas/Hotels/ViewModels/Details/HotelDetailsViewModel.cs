@@ -1,13 +1,13 @@
-﻿using AutoMapper;
-using HotelSystem.Data.Models;
-using HotelSystem.Web.Infrastructure.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace HotelSystem.Web.ViewModels.Hotels
+﻿namespace HotelSystem.Web.Areas.Hotels.ViewModels.Details
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using AutoMapper;
+
+    using HotelSystem.Data.Models;
+    using HotelSystem.Web.Infrastructure.Mapping;
+
     public class HotelDetailsViewModel : IMapFrom<Hotel>, IHaveCustomMappings
     {
         public int Id { get; set; }
@@ -25,6 +25,8 @@ namespace HotelSystem.Web.ViewModels.Hotels
         public string Phone { get; set; }
 
         public string Email { get; set; }
+
+        public bool RoomService { get; set; }
 
         public double Rating { get; set; }
 

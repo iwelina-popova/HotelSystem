@@ -1,13 +1,12 @@
 ﻿namespace HotelSystem.Web.ViewModels.Home
 {
-    using System;
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
-    using AutoMapper;
+
     using HotelSystem.Data.Models;
     using HotelSystem.Web.Infrastructure.Mapping;
 
-    public class ContactViewModel : IMapTo<Contact>
+    public class ContactInputModel : IMapTo<Contact>
     {
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }

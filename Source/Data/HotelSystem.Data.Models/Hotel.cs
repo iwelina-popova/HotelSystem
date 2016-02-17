@@ -8,13 +8,13 @@
     public class Hotel : BaseModel<int>
     {
         private ICollection<Rating> ratings;
-        private ICollection<HotelRooms> rooms;
+        private ICollection<HotelRoom> rooms;
         private ICollection<Image> photosSource;
 
         public Hotel()
         {
             this.ratings = new HashSet<Rating>();
-            this.rooms = new HashSet<HotelRooms>();
+            this.rooms = new HashSet<HotelRoom>();
             this.photosSource = new HashSet<Image>();
         }
 
@@ -37,6 +37,8 @@
         [MaxLength(50)]
         public string Email { get; set; }
 
+        public bool RoomService { get; set; }
+
         public virtual ICollection<Image> PhotosSource
         {
             get { return this.photosSource; }
@@ -49,7 +51,7 @@
             set { this.ratings = value; }
         }
 
-        public virtual ICollection<HotelRooms> Rooms
+        public virtual ICollection<HotelRoom> Rooms
         {
             get { return this.rooms; }
             set { this.rooms = value; }

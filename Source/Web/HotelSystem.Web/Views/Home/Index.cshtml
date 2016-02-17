@@ -15,20 +15,6 @@
         </ul>
     </div>
 </div>
-@section scripts{
-    <script>
-        $(function () {
-            $("#datepicker,#datepicker1").datepicker();
-        });
-    </script>
-    <script type="text/javascript">
-        (function () {
-            JC.init({
-                domainKey: ''
-            });
-        })();
-    </script>
-}
 <div class="online_reservation">
     <div class="b_room">
         <div class="booking_room">
@@ -84,20 +70,6 @@
             Sed euismod sem id consequat rutrum. Ut convallis lorem a orci mollis, eu vulputate libero aliquet. Praesent egestas nisi sed purus tincidunt faucibus. Aliquam lobortis orci lacus, sed faucibus augue dapibus vitae. Ut vitae mi sapien. Phasellus a eros justo.
             Curabitur odio massa, tincidunt nec nibh sit amet
         </p>
-        <!-- requried-jsfiles-for owl -->
-        <script>
-            $(document).ready(function () {
-                $("#owl-demo").owlCarousel({
-                    items: 1,
-                    lazyLoad: true,
-                    autoPlay: true,
-                    navigation: true,
-                    navigationText: false,
-                    pagination: false,
-                });
-            });
-        </script>
-        <!-- //requried-jsfiles-for owl -->
         <div id="owl-demo" class="owl-carousel">
             <div class="item text-center image-grid">
                 <ul>
@@ -221,3 +193,27 @@
     </div>
 </div>
 <!---->
+@section scripts{
+    <script>
+        $(function () {
+            $("#datepicker,#datepicker1").datepicker();
+        });
+
+        (function () {
+            JC.init({
+                domainKey: ''
+            });
+        })();
+
+        $(document).ready(function () {
+            $("#owl-demo").owlCarousel({
+                items: 1,
+                lazyLoad: true,
+                autoPlay: true,
+                navigation: true,
+                navigationText: false,
+                pagination: false,
+            });
+        });
+    </script>
+}

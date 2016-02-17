@@ -42,11 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IHotelRoomsService.cs" />
     <Compile Include="Contracts\IHotelsService.cs" />
     <Compile Include="Contracts\IHomeService.cs" />
+    <Compile Include="Contracts\IRoomsService.cs" />
     <Compile Include="HomeService.cs" />
+    <Compile Include="HotelRoomsService.cs" />
     <Compile Include="HotelsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoomsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Data\HotelSystem.Data.Common\HotelSystem.Data.Common.csproj">

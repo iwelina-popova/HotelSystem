@@ -33,8 +33,10 @@
             return this.View();
         }
 
+        // POST: /Home/Contact
         [HttpPost]
-        public ActionResult Contact(ContactViewModel model)
+        [ValidateAntiForgeryToken]
+        public ActionResult Contact(ContactInputModel model)
         {
             if (this.ModelState.IsValid)
             {

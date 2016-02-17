@@ -1,4 +1,4 @@
-﻿@model HotelSystem.Web.ViewModels.Hotels.IndexViewModel
+﻿@model HotelSystem.Web.Areas.Hotels.ViewModels.AllHotels.IndexViewModel
 @{
     ViewBag.Title = "Index";
 }
@@ -14,7 +14,7 @@
                         <a href="#"><img src=@hotel.Images.FirstOrDefault() alt="hotel image" /></a>
                         <div class="caption">
                             <span class="glyphicon glyphicon-star">@hotel.Rating</span>
-                            <a href="#">Info</a>
+                            @Html.ActionLink("Details", "Details", "Hotels", new { area = "Hotels"})
                         </div>
                         <h4>@hotel.Name</h4>
                         <p>

@@ -63,20 +63,47 @@
             List<Room> rooms = new List<Room>();
             rooms.Add(new Room()
             {
-                Type = RoomType.SingleRoom,
+                Type = RoomType.StandartSingleRoom,
                 Capacity = 2,
                 Description = "Very nice room",
                 Price = 85,
                 Size = 50,
                 Balcon = true,
                 Bathroom = true,
-                AirConditiong = true,
+                AirConditioning = true,
                 BedOptions = new List<BedOptions>() { BedOptions.Queen },
                 FreeWiFi = true,
                 Heating = true,
                 Minibar = true,
                 Telephone = true,
-                TV = true
+                TV = true,
+                PhotosSource = new List<Image>()
+                {
+                    new Image() { Source = "Images/Hotel-Paris/StandartSingleRoom.jpg" }
+                }
+            });
+            rooms.Add(new Room()
+            {
+                Type = RoomType.GrandeSuite,
+                Capacity = 4,
+                Description = "Only for people with execellent choice!",
+                Price = 190,
+                Size = 100,
+                Balcon = true,
+                Bathroom = true,
+                AirConditioning = true,
+                Heating = true,
+                Telephone = true,
+                TV = true,
+                HairDryer = true,
+                Iron = true,
+                Minibar = true,
+                FreeWiFi = true,
+                BedOptions = new List<BedOptions>() { BedOptions.King, BedOptions.King },
+                PhotosSource = new List<Image>()
+                {
+                    new Image() { Source = "Images/Hotel-Paris/GrandeSuite.jpg" }
+                }
             });
 
             context.Rooms.AddOrUpdate(rooms.ToArray());
@@ -90,7 +117,6 @@
                 return;
             }
 
-            var rooms = context.Rooms.ToList();
             var users = context.Users.ToList();
 
             var location = new Location()
@@ -112,10 +138,19 @@
                 {
                     new Image()
                     {
-                     Source = "../Images/Hotel-Paris/Hotel-Paris.jpg"
+                     Source = "Images/Hotel-Paris/Hotel-Paris.jpg"
+                    },
+                    new Image()
+                    {
+                        Source = "Images/Hotel-Paris/AifelTower.jpg"
+                    },
+                    new Image()
+                    {
+                        Source = "Images/Hotel-Paris/Tower.jpg"
                     }
                 }
             };
+
             hotel1.Ratings = new List<Rating>()
             {
                 new Rating()
@@ -133,6 +168,29 @@
             hotels.Add(hotel1);
 
             context.Hotels.AddOrUpdate(hotels.ToArray());
+            context.SaveChanges();
+        }
+
+        internal static void SeedHotelRooms(HotelSystemDbContext context)
+        {
+            if (context.HotelRooms.Any())
+            {
+                return;
+            }
+
+            var hotel = context.Hotels.FirstOrDefault();
+            var rooms = context.Rooms.ToList();
+
+            foreach (var room in rooms)
+            {
+                hotel.Rooms.Add(new HotelRoom()
+                {
+                    Room = room,
+                    RoomNumber = "101"
+                });
+            }
+
+            context.Hotels.AddOrUpdate(hotel);
             context.SaveChanges();
         }
     }

@@ -62,11 +62,11 @@
     <Compile Include="BedOptions.cs" />
     <Compile Include="Contact.cs" />
     <Compile Include="Hotel.cs" />
-    <Compile Include="HotelRooms.cs" />
+    <Compile Include="HotelRoom.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="Rating.cs" />
-    <Compile Include="Reservation.cs" />
+    <Compile Include="Booking.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="RoomType.cs" />
     <Compile Include="User.cs" />

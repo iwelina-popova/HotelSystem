@@ -22,7 +22,9 @@
                 "~/Scripts/custom/JFForms.js",
                 "~/Scripts/custom/jquery-ui.js",
                 "~/Scripts/custom/jquery.flexisel.js",
-                "~/Scripts/custom/owl.carousel.js",
+                "~/Scripts/custom/owl.carousel.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/responsive").Include(
                 "~/Scripts/custom/responsiveslides.min.js"));
         }
 

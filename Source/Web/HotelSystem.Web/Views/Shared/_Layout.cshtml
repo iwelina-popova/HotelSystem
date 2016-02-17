@@ -10,6 +10,7 @@
     @Styles.Render("~/Content/css/bootstrap")
     @Styles.Render("~/Content/css/custom")
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/responsive")
 
 </head>
 <body>
@@ -22,7 +23,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="@Url.Action("Index", "Home")">
+                <a href="@Url.Action("Index", "Home", new { area = string.Empty })">
                     <img src="@Url.Content("~/Images/logo.png")" />
                 </a>
             </div>
@@ -42,7 +43,7 @@
         <div class="top-header">
             <div class="container">
                 <div class="logo">
-                    <a href="@Url.Action("Index", "Home")">
+                    <a href="@Url.Action("Index", "Home", new { area = string.Empty })">
                         <img src="@Url.Content("~/Images/logo.png")" />
                     </a>
                 </div>
@@ -50,10 +51,10 @@
                 <div class="m-clear"></div>
                 <div class="top-menu top-menu-left">
                     <ul>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Hotels", "Index", "Hotels")</li>
-                        <li>@Html.ActionLink("Booking", "Booking", "Home")</li>
-                        <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home", new { area = string.Empty }, null)</li>
+                        <li>@Html.ActionLink("Hotels", "Index", "Hotels", new { area = "Hotels" }, null)</li>
+                        <li>@Html.ActionLink("Booking", "Booking", new { area = string.Empty }, null)</li>
+                        <li>@Html.ActionLink("Contact us", "Contact", "Home", new { area = string.Empty }, null)</li>
                     </ul>
                     <script>
                         $("span.menu").click(function () {
@@ -62,7 +63,7 @@
                     </script>
                 </div>
                 <div class="top-menu top-menu-right">
-                    <ul class="nav navbar-nav">                       
+                    <ul class="nav navbar-nav">
                         @if (User.IsInRole("Administrator"))
                         {
                             @Html.Action("Menu", "Admin", routeValues: new { Area = "Administration", @class = "navbar-brand" })

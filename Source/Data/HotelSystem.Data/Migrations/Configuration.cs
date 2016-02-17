@@ -13,9 +13,10 @@
 
         protected override void Seed(HotelSystemDbContext context)
         {
-               // DataSeeder.SeedUsers(context);
-                DataSeeder.SeedRooms(context);
-                DataSeeder.SeedHotels(context);
+            // DataSeeder.SeedUsers(context);
+            DataSeeder.SeedRooms(context);
+            DataSeeder.SeedHotels(context);
+            DataSeeder.SeedHotelRooms(context);
         }
     }
 }

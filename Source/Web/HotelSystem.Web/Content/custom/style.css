@@ -1390,7 +1390,7 @@ i.cell {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    padding-bottom: 9em;
+    padding-bottom: 3em;
 }
 
     .confer h2 {
@@ -3137,6 +3137,15 @@ select.birth-date {
     }
 }
 /* Custom part */
+
+#slider3-pager img{
+    width: 20%;
+}
+
+.room-grids .room-sec img {
+    width: 100%;
+}
+
 .custom-form {
     margin-bottom: 25em;
 }

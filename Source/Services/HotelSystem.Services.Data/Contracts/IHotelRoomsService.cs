@@ -4,10 +4,8 @@
 
     using HotelSystem.Data.Models;
 
-    public interface IHotelsService
+    public interface IHotelRoomsService
     {
-        IQueryable<Hotel> GetAll();
-
-        Hotel GetById(int id);
+        IQueryable<HotelRoom> GetAllRoomsInHotel(int hotelId);
     }
 }

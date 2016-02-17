@@ -1,4 +1,4 @@
-﻿@model HotelSystem.Web.ViewModels.Home.ContactViewModel
+﻿@model HotelSystem.Web.ViewModels.Home.ContactInputModel
 @{
     ViewBag.Title = "Contact";
 }
@@ -27,8 +27,9 @@
             <div class="contact_right">
                 <div class="contact-form">
                     <h3 class="style">Contact Us</h3>
-                    @using (Html.BeginForm("Contact", "Home", FormMethod.Post, new { @class= "custom-form", role = "form" }))
+                    @using (Html.BeginForm("Contact", "Home", FormMethod.Post, new { @class = "custom-form", role = "form" }))
                     {
+                        @Html.AntiForgeryToken()
                         <div>
                             @Html.LabelFor(m => m.Name)
                             @Html.TextBoxFor(m => m.Name, new { @class = "textbox" })

@@ -35,21 +35,25 @@
 
         //// Room Features
 
-        public bool Bathroom { get; set; }
-
-        public bool AirConditiong { get; set; }
-
-        public bool Heating { get; set; }
-
-        public bool TV { get; set; }
-
-        public bool Telephone { get; set; }
+        public bool AirConditioning { get; set; }
 
         public bool Balcon { get; set; }
 
-        public bool Minibar { get; set; }
+        public bool Bathroom { get; set; }
 
         public bool FreeWiFi { get; set; }
+
+        public bool HairDryer { get; set; }
+
+        public bool Heating { get; set; }
+
+        public bool Iron { get; set; }
+
+        public bool Minibar { get; set; }
+
+        public bool Telephone { get; set; }
+
+        public bool TV { get; set; }
 
         //// End Room Features
 
