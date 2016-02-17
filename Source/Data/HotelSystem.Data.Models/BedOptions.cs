@@ -6,5 +6,6 @@
         Queen = 1,
         King = 2,
         Twin = 3,
+        Sofa = 4
     }
 }

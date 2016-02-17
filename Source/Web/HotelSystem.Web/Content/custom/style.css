@@ -1165,10 +1165,10 @@ span.next {
 .caption {
     display: none;
     top: 0;
-    width: 92.5%;
+    width: 92%;
     position: absolute;
     background: rgba(45, 45, 45, 0.65);
-    height: 56%;
+    height: 72%;
     text-align: center;
     cursor: pointer;
 }
@@ -3138,12 +3138,16 @@ select.birth-date {
 }
 /* Custom part */
 
-#slider3-pager img{
+#slider3-pager img {
     width: 20%;
 }
 
 .room-grids .room-sec img {
     width: 100%;
+}
+
+.room-sec a img {
+    height: 250px;
 }
 
 .custom-form {

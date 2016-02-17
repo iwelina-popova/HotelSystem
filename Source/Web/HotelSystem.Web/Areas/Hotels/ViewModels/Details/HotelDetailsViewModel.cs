@@ -39,7 +39,7 @@
                 .ForMember(m => m.City, opt => opt.MapFrom(m => m.Location.City))
                 .ForMember(m => m.Address, opt => opt.MapFrom(m => m.Location.Address))
                 .ForMember(m => m.Images, opt => opt.MapFrom(m => m.PhotosSource.Select(p => p.Source)))
-                .ForMember(m => m.Rating, opt => opt.MapFrom(m => m.Ratings.Select(r => r.Rate).Average()));
+                .ForMember(m => m.Rating, opt => opt.MapFrom(m => m.Ratings.Any() ? m.Ratings.Select(r => r.Rate).Average() : 0));
         }
     }
 }

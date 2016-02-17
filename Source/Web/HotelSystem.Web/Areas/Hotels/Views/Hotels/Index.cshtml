@@ -11,10 +11,13 @@
                 foreach (var hotel in Model.Hotels)
                 {
                     <div class="col-md-4 room-sec">
-                        <a href="#"><img src=@hotel.Images.FirstOrDefault() alt="hotel image" /></a>
+                        <a href="#"><img src="../../@hotel.Images.FirstOrDefault()" alt="hotel image" /></a>
                         <div class="caption">
-                            <span class="glyphicon glyphicon-star">@hotel.Rating</span>
-                            @Html.ActionLink("Details", "Details", "Hotels", new { area = "Hotels"})
+                            @if (@hotel.Rating > 0)
+                            {
+                                 <span class="glyphicon glyphicon-star">@hotel.Rating</span>
+                            }
+                            @Html.ActionLink("Details", "Details", "Hotels", new { area = "Hotels"}, null)
                         </div>
                         <h4>@hotel.Name</h4>
                         <p>

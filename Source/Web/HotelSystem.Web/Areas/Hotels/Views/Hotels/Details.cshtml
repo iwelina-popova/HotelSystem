@@ -15,7 +15,10 @@
     <div class="container">
         <h2>
             HOTEL<span>@Model.Hotel.Name</span>
+            @if (Model.Hotel.Rating > 0)
+            {
             <a class="label label-default">@Model.Hotel.Rating / 10</a>
+            }
         </h2>
         <div class="conference-slider">
             <!-- Slideshow 3 -->
@@ -57,26 +60,30 @@
                         <h4>@room.RoomType</h4>
                         <p>@room.Description</p>
                         <ul class="items">
-                            @if (@room.AirConditioning)
+                            @if (room.AirConditioning)
                             {
                                 <li><a href="#"><span class="img1"> </span></a></li>
                             }
-                            @if (@room.HairDryer)
+                            @if (room.HairDryer)
                             {
                                 <li><a href="#"><span class="img2"> </span></a></li>
                             }
 
-                            @if (@room.Iron)
+                            @if (room.Iron)
                             {
                                 <li><a href="#"><span class="img3"> </span></a></li>
                             }
-                            @if (@room.TV)
+                            @if (room.TV)
                             {
                                 <li><a href="#"><span class="img4"> </span></a></li>
                             }
-                            @if (@room.FreeWiFi)
+                            @if (room.FreeWiFi)
                             {
                                 <li><a href="#"><span class="img5"> </span></a></li>
+                            }
+                            @if (Model.Hotel.RoomService)
+                            {
+                                <li><a href="#"><span class="img6"> </span></a></li>
                             }
                         </ul>
                     </div>
