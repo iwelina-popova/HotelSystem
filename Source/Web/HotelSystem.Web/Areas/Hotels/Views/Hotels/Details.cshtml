@@ -17,7 +17,7 @@
             HOTEL<span>@Model.Hotel.Name</span>
             @if (Model.Hotel.Rating > 0)
             {
-            <a class="label label-default">@Model.Hotel.Rating / 10</a>
+                <a class="label label-default">@Model.Hotel.Rating / 10</a>
             }
         </h2>
         <div class="conference-slider">
@@ -53,7 +53,7 @@
         <h3>Our Room Types</h3>
         <div class="room-grids">
             @{
-                foreach (var room in Model.Rooms)
+                foreach (var room in Model.HotelRooms)
                 {
                     <div class="col-md-4 room-sec">
                         <img class="custom-img" src="../../../@room.Images.FirstOrDefault()" alt="" />

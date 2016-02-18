@@ -14,7 +14,9 @@
         private IHotelsService hotels;
         private IHotelRoomsService hotelRooms;
 
-        public HotelsController(IHotelsService hotelsService, IHotelRoomsService hotelRoomsService)
+        public HotelsController(
+            IHotelsService hotelsService,
+            IHotelRoomsService hotelRoomsService)
         {
             this.hotels = hotelsService;
             this.hotelRooms = hotelRoomsService;
@@ -44,14 +46,14 @@
                 .FirstOrDefault();
 
             var hotelRooms = this.hotelRooms
-                .GetAllRoomsInHotel(hotel.Id)
+                .GetUniqueRoomTypesInHotel(hotel.Id)
                 .To<HotelRoomViewModel>()
                 .ToList();
 
             var viewModel = new DetailsViewModel
             {
                 Hotel = hotel,
-                Rooms = hotelRooms
+                HotelRooms = hotelRooms
             };
 
             return this.View(viewModel);

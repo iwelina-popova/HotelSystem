@@ -7,5 +7,7 @@
     public interface IHotelRoomsService
     {
         IQueryable<HotelRoom> GetAllRoomsInHotel(int hotelId);
+
+        IQueryable<HotelRoom> GetUniqueRoomTypesInHotel(int hotelId);
     }
 }

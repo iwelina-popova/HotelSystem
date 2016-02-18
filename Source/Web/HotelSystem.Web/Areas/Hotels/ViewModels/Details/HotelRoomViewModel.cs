@@ -31,8 +31,8 @@
         public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<HotelRoom, HotelRoomViewModel>()
-                .ForMember(m => m.RoomId, opt => opt.MapFrom(m => m.Room.Id))
                 .ForMember(m => m.RoomType, opt => opt.MapFrom(m => m.Room.Type))
+                .ForMember(m => m.RoomId, opt => opt.MapFrom(m => m.Room.Id))
                 .ForMember(m => m.Description, opt => opt.MapFrom(m => m.Room.Description))
                 .ForMember(m => m.AirConditioning, opt => opt.MapFrom(m => m.Room.AirConditioning))
                 .ForMember(m => m.FreeWiFi, opt => opt.MapFrom(m => m.Room.FreeWiFi))

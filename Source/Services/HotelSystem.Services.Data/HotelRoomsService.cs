@@ -21,5 +21,14 @@
                 .All()
                 .Where(hr => hr.HotelId == hotelId);
         }
+
+        public IQueryable<HotelRoom> GetUniqueRoomTypesInHotel(int hotelId)
+        {
+            return this.hotelRooms
+                .All()
+                .Where(hr => hr.HotelId == hotelId)
+                .GroupBy(hr => hr.Room.Type)
+                .Select(hr => hr.FirstOrDefault());
+        }
     }
 }

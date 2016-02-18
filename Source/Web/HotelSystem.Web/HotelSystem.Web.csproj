@@ -206,6 +206,7 @@
     <Compile Include="Areas\Hotels\ViewModels\Details\HotelRoomViewModel.cs" />
     <Compile Include="Areas\Hotels\ViewModels\AllHotels\HotelViewModel.cs" />
     <Compile Include="Areas\Hotels\ViewModels\AllHotels\IndexViewModel.cs" />
+    <Compile Include="Areas\Hotels\ViewModels\Details\RoomViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

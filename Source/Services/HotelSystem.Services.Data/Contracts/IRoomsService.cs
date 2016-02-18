@@ -1,13 +1,11 @@
-﻿using HotelSystem.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HotelSystem.Services.Data.Contracts
+﻿namespace HotelSystem.Services.Data.Contracts
 {
+    using System.Linq;
+
+    using HotelSystem.Data.Models;
+
     public interface IRoomsService
     {
+        IQueryable<Room> GetAllRooms();
     }
 }

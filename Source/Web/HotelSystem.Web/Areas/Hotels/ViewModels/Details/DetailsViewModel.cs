@@ -6,6 +6,6 @@
     {
         public HotelDetailsViewModel Hotel { get; set; }
 
-        public IEnumerable<HotelRoomViewModel> Rooms { get; set; }
+        public IEnumerable<HotelRoomViewModel> HotelRooms { get; set; }
     }
 }
