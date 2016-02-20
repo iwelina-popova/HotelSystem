@@ -23,9 +23,11 @@
                 "~/Scripts/custom/jquery-ui.js",
                 "~/Scripts/custom/jquery.flexisel.js",
                 "~/Scripts/custom/owl.carousel.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/responsive").Include(
                 "~/Scripts/custom/responsiveslides.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/gridmvc").Include(
+                "~/Scripts/gridmvc.js",
+                "~/Scripts/gridmvc.min.js"));
         }
 
         private static void RegisterStyles(BundleCollection bundles)
@@ -37,6 +39,8 @@
                  "~/Content/custom/jquery-ui.css",
                  "~/Content/custom/owl.carousel.css",
                  "~/Content/custom/style.css"));
+            bundles.Add(new StyleBundle("~/Content/css/gridmvc").Include(
+                "~/Content/Gridmvc.css"));
         }
     }
 }

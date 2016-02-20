@@ -103,7 +103,7 @@ furniture crafted by recognised French artisans. The atmosphere is warm and comf
                 TV = true,
                 PhotosSource = new List<Image>()
                 {
-                    new Image() { Source = "Images/Hotel-Paris/Rooms/StandardSingleRoom.jpg" }
+                    new Image() { Source = "Images/Hotel-Paris/Rooms/StandardDoubleRoom.jpg" }
                 }
             });
             rooms.Add(new Room()

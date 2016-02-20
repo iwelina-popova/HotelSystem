@@ -33,9 +33,15 @@
         [MaxLength(20)]
         public string Phone { get; set; }
 
+        [MaxLength(20)]
+        public string Fax { get; set; }
+
         [Required]
         [MaxLength(50)]
         public string Email { get; set; }
+
+        [MaxLength(100)]
+        public string Facebook { get; set; }
 
         public bool RoomService { get; set; }
 

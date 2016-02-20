@@ -17,7 +17,7 @@
             context.MapRoute(
                 name: "Hotels_default",
                 url: "Hotels/{controller}/{action}/{id}",
-                defaults: new { action = "Index", id = UrlParameter.Optional });
+                defaults: new { action = "Index", controller = "All", id = UrlParameter.Optional });
         }
     }
 }

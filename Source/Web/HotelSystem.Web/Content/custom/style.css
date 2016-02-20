@@ -3142,6 +3142,11 @@ select.birth-date {
     width: 20%;
 }
 
+.room-custom{
+    background: url(../../Images/package-bg.jpg) repeat 0px 0px;
+    border-top: 1px solid #939597;
+}
+
 .room-grids .room-sec img {
     width: 100%;
 }
