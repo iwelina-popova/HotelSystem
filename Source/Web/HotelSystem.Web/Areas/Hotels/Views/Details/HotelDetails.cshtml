@@ -1,0 +1,37 @@
+﻿@model HotelSystem.Web.Areas.Hotels.ViewModels.Details.DetailsViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="confer">
+    @Html.Partial("_HotelDetailsInfo", Model.Hotel)
+</div>
+<div class="rooms text-center room-custom">
+    <div class="container">
+        <h3>Our Room Types</h3>
+        <div class="room-grids">
+            @{
+                foreach (var room in Model.HotelRooms)
+                {
+                    <div class="col-md-4 room-sec">
+                        @Html.Partial("_HotelRoom", room)
+                    </div>
+                }
+            }
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(window).load(function () {
+            $("#conference-slider").responsiveSlides({
+                auto: true,
+                manualControls: '#slider3-pager',
+            });
+        });
+    </script>
+}
+
+

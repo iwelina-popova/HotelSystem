@@ -1,0 +1,19 @@
+﻿@model IEnumerable<HotelSystem.Web.Areas.Hotels.ViewModels.All.HotelViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="rooms text-center">
+    <div class="container">
+        <h3>Our Hotels</h3>
+        <div class="room-grids">
+            @{
+                foreach (var hotel in Model)
+                {
+                    @Html.Partial("_HotelMainInfo", hotel)
+                }
+            }
+        </div>
+    </div>
+</div>
+

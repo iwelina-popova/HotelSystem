@@ -1,0 +1,41 @@
+﻿@model HotelSystem.Web.Areas.Hotels.ViewModels.Details.HotelDetailsViewModel
+
+<div class="container">
+    <h2>
+        HOTEL<span>@Model.Name</span>
+        @if (Model.Rating > 0)
+            {
+            <a class="label label-default">@Model.Rating / 10</a>
+        }
+    </h2>
+    <div class="conference-slider">
+        <!-- Slideshow 3 -->
+        <ul class="conference-rslide" id="conference-slider">
+            @{
+                foreach (var image in Model.Images)
+                {
+                    <li>
+                        <img src="../../../@image" alt="Hotel details images" />
+                    </li>
+                }
+            }
+        </ul>
+        <!-- Slideshow 3 Pager
+        <ul id="slider3-pager">
+            @{
+                foreach (var image in Model.Images)
+                {
+                    <li>
+                        <img src="../../../@image" alt="Hotel details images" />
+                    </li>
+                }
+            }
+        </ul>
+            -->
+    </div>
+    <h4>More About @Model.Name</h4>
+    <p>@Model.Description</p>
+</div>
+
+
+

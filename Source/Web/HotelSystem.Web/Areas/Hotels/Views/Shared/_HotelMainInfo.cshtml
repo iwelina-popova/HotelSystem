@@ -1,0 +1,27 @@
+﻿@model HotelSystem.Web.Areas.Hotels.ViewModels.All.HotelViewModel
+
+<div class="col-md-4 room-sec">
+    <a href="#"><img src="../../@Model.Images.Where(i => i.Contains("Main")).FirstOrDefault()" alt="hotel image" /></a>
+    <div class="caption">
+        @if (@Model.Rating > 0)
+        {
+            <span class="glyphicon glyphicon-star">@Model.Rating</span>
+        }
+        @Html.ActionLink("Details", "HotelDetails", "Details", new { area = "Hotels" }, null)
+    </div>
+    <h4>@Model.Name</h4>
+    <p>
+        @if (Model.Description.Length > 100)
+        {
+            @Model.Description.Substring(0, 100)
+            <span>...</span>
+        }
+        else
+        {
+            @Model.Description
+        }
+    </p>
+</div>
+
+
+
