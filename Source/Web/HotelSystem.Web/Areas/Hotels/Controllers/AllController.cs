@@ -1,15 +1,13 @@
-﻿using HotelSystem.Services.Data.Contracts;
-using HotelSystem.Web.Areas.Hotels.ViewModels.All;
-using HotelSystem.Web.Controllers;
-using HotelSystem.Web.Infrastructure.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace HotelSystem.Web.Areas.Hotels.Controllers
+﻿namespace HotelSystem.Web.Areas.Hotels.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using HotelSystem.Services.Data.Contracts;
+    using HotelSystem.Web.Areas.Hotels.ViewModels.All;
+    using HotelSystem.Web.Controllers;
+    using HotelSystem.Web.Infrastructure.Mapping;
+
     public class AllController : BaseController
     {
         private IHotelsService hotels;

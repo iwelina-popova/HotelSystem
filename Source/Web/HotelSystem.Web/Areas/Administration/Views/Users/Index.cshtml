@@ -1,9 +1,62 @@
-﻿@model IQueryable<HotelSystem.Web.Areas.Administration.ViewModels.Users.UserViewModel>
+﻿@model IEnumerable<HotelSystem.Web.Areas.Administration.ViewModels.Users.UserViewModel>
+@using GridMvc.Html
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Admin-Users";
+    Layout = "~/Views/Shared/_LayoutGridmvc.cshtml";
 }
 
-<h2>Administration - Users</h2>
+<div class="jumbotron">
+    <div class="text-center">
+        <h2>Administration - Users</h2>
+        @Html.ActionLink("Create User", "Create", "Users", new { area = "Administration" }, new { @class = "btn btn-lg btn-info"})
+    </div>
+</div>
+
+@Html.Grid(Model).Columns(columns =>
+{
+columns.Add()
+       .Encoded(false)
+       .Sanitized(false)
+       .SetWidth(30)
+       .RenderValueAs(d =>
+    @<b>
+        @Html.ActionLink("Delete", "Delete", new { id = d.Id }, new { @class = "btn btn-danger" })
+        @Html.ActionLink("Edit", "Edit", new { id = d.Id }, new { @class = "btn btn-warning" })
+    </b>
+           );
+
+    columns.Add(c => c.FirstName)
+           .Titled("First name")
+           .SetWidth(70);
+
+    columns.Add(c => c.LastName)
+           .Titled("Last name")
+           .SetWidth(70);
+
+    columns.Add(c => c.Email)
+           .Titled("Email")
+           .SetWidth(100);
+
+    columns.Add(c => c.IsDeleted)
+           .Titled("Is Deleted")
+           .SetWidth(60);
+
+    columns.Add(c => c.PhoneNumber)
+           .Titled("Phone")
+           .SetWidth(100);
+
+    columns.Add(c => c.CreatedOn)
+           .Titled("Created on")
+           .SetWidth(80);
+
+    columns.Add(c => c.ModifiedOn)
+           .Titled("Modified on")
+           .SetWidth(80);
+
+}).WithPaging(10).Sortable().Filterable().WithMultipleFilters()
+
+<br />
 
 
 

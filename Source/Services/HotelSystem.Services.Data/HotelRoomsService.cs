@@ -10,9 +10,9 @@
     {
         private IDbRepository<HotelRoom> hotelRooms;
 
-        public HotelRoomsService(IDbRepository<HotelRoom> hotelRoomsService)
+        public HotelRoomsService(IDbRepository<HotelRoom> hotelRooms)
         {
-            this.hotelRooms = hotelRoomsService;
+            this.hotelRooms = hotelRooms;
         }
 
         public IQueryable<HotelRoom> GetAllRoomsInHotel(int hotelId)

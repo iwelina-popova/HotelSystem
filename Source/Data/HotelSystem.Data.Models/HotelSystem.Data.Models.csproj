@@ -77,6 +77,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\HotelSystem.Common\HotelSystem.Common.csproj">
+      <Project>{c3cb0cca-c8eb-46f4-a213-41e916922a47}</Project>
+      <Name>HotelSystem.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HotelSystem.Data.Common\HotelSystem.Data.Common.csproj">
       <Project>{edfe3c57-ef5b-4636-9ecc-d0baca6b6379}</Project>
       <Name>HotelSystem.Data.Common</Name>

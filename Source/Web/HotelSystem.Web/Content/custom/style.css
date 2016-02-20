@@ -3186,7 +3186,7 @@ select.birth-date {
             transition: all 0.3s ease-in-out;
         }
 
-    .custom-form input[type="submit"], .custom-form input[type="reset"] {
+    .custom-form input[type="submit"], .custom-form input[type="reset"], .custom-form a.btn {
         margin: 25px 0 55px 0;
         /*width: 100px !important;*/
         font-family: 'Open Sans', sans-serif;
@@ -3213,3 +3213,4 @@ select.birth-date {
             background: #E7CB2C;
             border: 1px solid #E7CB2C;
         }
+

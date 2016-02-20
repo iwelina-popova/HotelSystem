@@ -68,7 +68,7 @@
             {
                 var entity = (IDeletableEntity)entry.Entity;
 
-                entity.DeletedOn = DateTime.Now;
+                entity.DeletedOn = DateTime.UtcNow;
                 entity.IsDeleted = true;
                 entry.State = EntityState.Modified;
             }

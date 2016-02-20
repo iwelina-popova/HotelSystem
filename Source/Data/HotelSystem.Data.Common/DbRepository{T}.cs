@@ -6,9 +6,8 @@
 
     using HotelSystem.Data.Common.Models;
 
-    // TODO: Why BaseModel<int> instead BaseModel<TKey>?
     public class DbRepository<T> : IDbRepository<T>
-        where T : BaseModel<int>
+        where T : class, IAuditInfo, IDeletableEntity
     {
         public DbRepository(DbContext context)
         {
@@ -35,9 +34,15 @@
             return this.DbSet;
         }
 
-        public T GetById(int id)
+        public T GetById(object id)
         {
-            return this.All().FirstOrDefault(x => x.Id == id);
+            var entity = this.DbSet.Find(id);
+            if (entity.IsDeleted)
+            {
+                return null;
+            }
+
+            return entity;
         }
 
         public void Add(T entity)
@@ -59,6 +64,11 @@
         public void SaveChanges()
         {
             this.Context.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            this.Context.Dispose();
         }
     }
 }

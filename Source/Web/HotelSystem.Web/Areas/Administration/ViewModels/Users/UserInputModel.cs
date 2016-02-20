@@ -1,8 +1,12 @@
-﻿namespace HotelSystem.Web.ViewModels.Account
+﻿namespace HotelSystem.Web.Areas.Administration.ViewModels.Users
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class RegisterViewModel
+    using HotelSystem.Common;
+    using HotelSystem.Data.Models;
+    using HotelSystem.Web.Infrastructure.Mapping;
+
+    public class UserInputModel : IMapTo<User>
     {
         [Required]
         [EmailAddress]

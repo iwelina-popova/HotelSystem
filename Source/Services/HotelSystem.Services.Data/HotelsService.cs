@@ -12,9 +12,9 @@
         private readonly IDbRepository<Hotel> hotels;
         private readonly IIdentifierProvider identifierProvider;
 
-        public HotelsService(IDbRepository<Hotel> hotelsService, IIdentifierProvider identifierProvider)
+        public HotelsService(IDbRepository<Hotel> hotels, IIdentifierProvider identifierProvider)
         {
-            this.hotels = hotelsService;
+            this.hotels = hotels;
             this.identifierProvider = identifierProvider;
         }
 

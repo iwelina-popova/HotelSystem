@@ -190,7 +190,7 @@
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
-                    PhoneNumber = model.Phone,
+                    PhoneNumber = model.PhoneNumber,
                     BirthDate = date
                 };
                 var result = await this.UserManager.CreateAsync(user, model.Password);

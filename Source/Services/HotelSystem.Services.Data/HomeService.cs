@@ -10,9 +10,9 @@
     {
         private IDbRepository<Contact> contacts;
 
-        public HomeService(IDbRepository<Contact> contactsService)
+        public HomeService(IDbRepository<Contact> contacts)
         {
-            this.contacts = contactsService;
+            this.contacts = contacts;
         }
 
         public void AddContact(Contact contact)

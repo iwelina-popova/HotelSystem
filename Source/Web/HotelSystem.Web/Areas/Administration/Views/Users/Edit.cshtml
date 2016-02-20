@@ -1,0 +1,43 @@
+﻿@model HotelSystem.Web.Areas.Administration.ViewModels.Users.UserEditModel
+
+@{
+    ViewBag.Title = "Edit user";
+}
+
+<br />
+<h2 class="text-center">Update</h2>
+
+<div class="container">
+    @using (Html.BeginForm("Edit", "Users", FormMethod.Post, new { @class = "custom-form", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(m => m.Id)
+
+        <div class="col-md-8 col-md-offset-2 form-group">
+            @Html.LabelFor(m => m.FirstName)
+            @Html.TextBoxFor(m => m.FirstName, new { htmlAttributes = new { @class = "textbox" } })
+            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            @Html.LabelFor(m => m.LastName)
+            @Html.TextBoxFor(m => m.LastName, new { htmlAttributes = new { @class = "textbox" } })
+            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            @Html.LabelFor(m => m.PhoneNumber)
+            @Html.TextBoxFor(m => m.PhoneNumber)
+            @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            <div class="col-md-4 col-md-push-3">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+            <div class="col-md-4 col-md-push-2">
+                @Html.ActionLink("Back", "Index", "Users", new { area = "Administration" }, new { @class = "btn btn-success" })
+            </div>
+        </div>
+    }
+</div>
+
