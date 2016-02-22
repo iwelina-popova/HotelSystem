@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
+    using HotelSystem.Common;
     using HotelSystem.Data.Common.Models;
 
     public class Room : BaseModel<int>
@@ -19,18 +20,15 @@
         [Required]
         public RoomType Type { get; set; }
 
-        [Required]
         public int Size { get; set; }
 
-        [Required]
         [Range(1, 10)]
         public int Capacity { get; set; }
 
         [Required]
-        [MaxLength(2000)]
+        [MaxLength(ModelConstraints.DescriptionMaxLength)]
         public string Description { get; set; }
 
-        [Required]
         public decimal Price { get; set; }
 
         //// Room Features

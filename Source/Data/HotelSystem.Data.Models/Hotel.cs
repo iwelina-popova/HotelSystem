@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
+    using HotelSystem.Common;
     using HotelSystem.Data.Common.Models;
 
     public class Hotel : BaseModel<int>
@@ -19,31 +20,32 @@
         }
 
         [Required]
-        [MaxLength(100)]
+        [MaxLength(ModelConstraints.NameMaxLength)]
         public string Name { get; set; }
 
         [Required]
-        [MaxLength(2000)]
+        [MaxLength(ModelConstraints.DescriptionMaxLength)]
         public string Description { get; set; }
+
+        [Range(ModelConstraints.HotelMinStars, ModelConstraints.HotelMaxStars)]
+        public int Stars { get; set; }
 
         [Required]
         public Location Location { get; set; }
 
         [Required]
-        [MaxLength(20)]
+        [MaxLength(ModelConstraints.ContactInfoMaxLength)]
         public string Phone { get; set; }
 
-        [MaxLength(20)]
+        [MaxLength(ModelConstraints.ContactInfoMaxLength)]
         public string Fax { get; set; }
 
         [Required]
-        [MaxLength(50)]
+        [MaxLength(ModelConstraints.EmailMaxLength)]
         public string Email { get; set; }
 
-        [MaxLength(100)]
+        [MaxLength(ModelConstraints.FacebookMaxLength)]
         public string Facebook { get; set; }
-
-        public bool RoomService { get; set; }
 
         public virtual ICollection<Image> PhotosSource
         {
