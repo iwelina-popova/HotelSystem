@@ -1,0 +1,48 @@
+﻿@model IEnumerable<HotelSystem.Web.Areas.Administration.ViewModels.Rooms.RoomViewModel>
+@using GridMvc.Html
+
+@{
+    ViewBag.Title = "Administration - Rooms";
+    Layout = "~/Views/Shared/_LayoutGridmvc.cshtml";
+}
+
+<div class="jumbotron">
+    <div class="text-center">
+        <h2>@ViewBag.Title</h2>
+        @Html.ActionLink("Add New Room", "Create", "Rooms", new { area = "Administration" }, new { @class = "btn btn-lg btn-info" })
+    </div>
+</div>
+
+@Html.Grid(Model).Columns(columns =>
+{
+columns.Add()
+       .Encoded(false)
+       .Sanitized(false)
+       .SetWidth(30)
+       .RenderValueAs(d =>
+    @<b>
+        @Html.ActionLink("Delete", "Delete", new { id = d.Id }, new { @class = "btn btn-danger" })
+        @Html.ActionLink("Edit", "Edit", new { id = d.Id }, new { @class = "btn btn-warning" })
+    </b>
+           );
+
+    columns.Add(c => c.Type)
+           .SetWidth(70);
+
+    columns.Add(c => c.IsDeleted)
+           .Titled("Is Deleted")
+           .SetWidth(100);
+
+    columns.Add(c => c.CreatedOn)
+           .Titled("Created On")
+           .SetWidth(60);
+
+    columns.Add(c => c.ModifiedOn)
+           .Titled("Modified on")
+           .SetWidth(80);
+
+}).WithPaging(10).Sortable().Filterable().WithMultipleFilters()
+
+<br />
+
+

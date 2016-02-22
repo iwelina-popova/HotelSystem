@@ -1,0 +1,117 @@
+﻿@model HotelSystem.Web.Areas.Administration.ViewModels.Rooms.RoomInputModel
+
+@{
+    ViewBag.Title = "Create room";
+}
+
+<br />
+<h2 class="text-center">@ViewBag.Title</h2>
+
+<div class="container">
+    @using (Html.BeginForm("Create", "Rooms", FormMethod.Post, new { @class = "custom-form", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="col-md-8 col-md-offset-2 form-group">
+            @Html.LabelFor(m => m.Type)
+            @Html.DropDownListFor(
+                        m => m.Type,
+                        EnumHelper.GetSelectList(typeof(HotelSystem.Data.Models.RoomType)),
+                        new { @class = "custom-dropdown" })
+            @Html.ValidationMessageFor(m => m.Type, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            @Html.LabelFor(m => m.Description)
+            @Html.TextAreaFor(m => m.Description, new { htmlAttributes = new { @class = "textbox" } })
+            @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            @Html.LabelFor(m => m.Capacity)
+            @Html.TextBoxFor(m => m.Capacity)
+            @Html.ValidationMessageFor(m => m.Capacity, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            @Html.LabelFor(m => m.Price)
+            @Html.TextBoxFor(m => m.Price)
+            @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            @Html.LabelFor(m => m.Beds)
+            @Html.DropDownListFor(
+                        m => m.Beds,
+                        EnumHelper.GetSelectList(typeof(HotelSystem.Data.Models.BedOptions)),
+                        new { @class = "arrival birth-date" })
+            @Html.ValidationMessageFor(m => m.Type, "", new { @class = "text-danger" })
+        </div>
+        {
+            List<SelectListItem> trueFalse = new List<SelectListItem>();
+            trueFalse.Add(new SelectListItem()
+            {
+                Text = "True",
+                Value = true.ToString()
+            });
+            trueFalse.Add(new SelectListItem()
+            {
+                Text = "False",
+                Value = false.ToString()
+            });
+            <div class="col-md-8 col-md-offset-2 form-group">
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.AirConditioning, new { @class = "move-left" })
+                    @Html.DropDownListFor(m => m.AirConditioning, trueFalse, new { @class = "move-left custom-dropdown" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Balcon)
+                    @Html.DropDownListFor(m => m.Balcon, trueFalse, new { @class = "custom-dropdown" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Bathroom)
+                    @Html.DropDownListFor(m => m.Bathroom, trueFalse, new { @class = "custom-dropdown" })
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2 form-group">
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.FreeWiFi, new { @class = "move-left" })
+                    @Html.DropDownListFor(m => m.FreeWiFi, trueFalse, new { @class = "move-left custom-dropdown" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.HairDryer)
+                    @Html.DropDownListFor(m => m.HairDryer, trueFalse, new { @class = "custom-dropdown" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Heating)
+                    @Html.DropDownListFor(m => m.Heating, trueFalse, new { @class = "custom-dropdown" })
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2 form-group">
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Iron, new { @class = "move-left" })
+                    @Html.DropDownListFor(m => m.Iron, trueFalse, new { @class = "move-left custom-dropdown" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Minibar)
+                    @Html.DropDownListFor(m => m.Minibar, trueFalse, new { @class = "custom-dropdown" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Telephone)
+                    @Html.DropDownListFor(m => m.Telephone, trueFalse, new { @class = "custom-dropdown" })
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2 form-group">
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.TV, new { @class = "move-left" })
+                    @Html.DropDownListFor(m => m.TV, trueFalse, new { @class = "move-left custom-dropdown" })
+                </div>
+            </div>
+        }
+        <div class="col-md-8 col-md-offset-2 form-group">
+            <div class="col-md-4 col-md-push-3">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+            <div class="col-md-4 col-md-push-2">
+                @Html.ActionLink("Back", "Index", "Rooms", new { area = "Administration" }, new { @class = "btn btn-success" })
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,87 @@
+﻿@model HotelSystem.Web.Areas.Administration.ViewModels.Hotels.HotelInputModel
+
+@{
+    ViewBag.Title = "Create hotel";
+}
+
+<br />
+<h2 class="text-center">@ViewBag.Title</h2>
+
+<div class="container">
+    @using (Html.BeginForm("Create", "Hotels", FormMethod.Post, new { @class = "custom-form", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="col-md-8 col-md-offset-2 form-group">
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name, new { htmlAttributes = new { @class = "textbox" } })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            @Html.LabelFor(m => m.Description)
+            @Html.TextAreaFor(m => m.Description, new { htmlAttributes = new { @class = "textbox" } })
+            @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            @Html.LabelFor(m => m.Country)
+            @Html.TextBoxFor(m => m.Country, new { htmlAttributes = new { @class = "textbox" } })
+            @Html.ValidationMessageFor(m => m.Country, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            @Html.LabelFor(m => m.City)
+            @Html.TextBoxFor(m => m.City, new { htmlAttributes = new { @class = "textbox" } })
+            @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            @Html.LabelFor(m => m.Address)
+            @Html.TextBoxFor(m => m.Address, new { htmlAttributes = new { @class = "textbox" } })
+            @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            @Html.LabelFor(m => m.Phone)
+            @Html.TextBoxFor(m => m.Phone)
+            @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            @Html.LabelFor(m => m.Fax)
+            @Html.TextBoxFor(m => m.Fax)
+            @Html.ValidationMessageFor(m => m.Fax, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email)
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            @Html.LabelFor(m => m.Facebook)
+            @Html.TextBoxFor(m => m.Facebook)
+            @Html.ValidationMessageFor(m => m.Facebook, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            @{
+                List<SelectListItem> range = new List<SelectListItem>();
+                for (int i = 1; i <= 5; i++)
+                {
+                    range.Add(new SelectListItem()
+                    {
+                        Text = i.ToString(),
+                        Value = i.ToString()
+                    });
+                }
+            }
+            @Html.LabelFor(m => m.Stars)
+            @Html.DropDownListFor(m => m.Stars, range, new { @class = "arrival birth-date" })
+            @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            <div class="col-md-4 col-md-push-3">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+            <div class="col-md-4 col-md-push-2">
+                @Html.ActionLink("Back", "Index", "Hotels", new { area = "Administration" }, new { @class = "btn btn-success" })
+            </div>
+        </div>
+                }
+</div>

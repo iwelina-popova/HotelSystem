@@ -1,15 +1,15 @@
-﻿@model IEnumerable<HotelSystem.Web.Areas.Administration.ViewModels.Users.UserViewModel>
+﻿@model IEnumerable<HotelSystem.Web.Areas.Administration.ViewModels.Hotels.HotelViewModel>
 @using GridMvc.Html
 
 @{
-    ViewBag.Title = "Administration-Users";
+    ViewBag.Title = "Administration - Hotels";
     Layout = "~/Views/Shared/_LayoutGridmvc.cshtml";
 }
 
 <div class="jumbotron">
     <div class="text-center">
-        <h2>Administration - Users</h2>
-        @Html.ActionLink("Create User", "Create", "Users", new { area = "Administration" }, new { @class = "btn btn-lg btn-info"})
+        <h2>Administration - Hotels</h2>
+        @Html.ActionLink("Add New Hotel", "Create", "Hotels", new { area = "Administration" }, new { @class = "btn btn-lg btn-info" })
     </div>
 </div>
 
@@ -21,34 +21,25 @@ columns.Add()
        .SetWidth(30)
        .RenderValueAs(d =>
     @<b>
-        @Html.ActionLink("Delete", "Delete", "Users", new { id = d.Id }, new { @class = "btn btn-danger" })
+        @Html.ActionLink("Delete", "Delete", new { id = d.Id }, new { @class = "btn btn-danger" })
         @Html.ActionLink("Edit", "Edit", new { id = d.Id }, new { @class = "btn btn-warning" })
     </b>
            );
 
-    columns.Add(c => c.FirstName)
-           .Titled("First name")
+    columns.Add(c => c.Name)
            .SetWidth(70);
 
-    columns.Add(c => c.LastName)
-           .Titled("Last name")
+    columns.Add(c => c.RoomsCount)
+           .Titled("Rooms Count")
            .SetWidth(70);
-
-    columns.Add(c => c.Email)
-           .Titled("Email")
-           .SetWidth(100);
 
     columns.Add(c => c.IsDeleted)
            .Titled("Is Deleted")
-           .SetWidth(60);
-
-    columns.Add(c => c.PhoneNumber)
-           .Titled("Phone")
            .SetWidth(100);
 
     columns.Add(c => c.CreatedOn)
-           .Titled("Created on")
-           .SetWidth(80);
+           .Titled("Created On")
+           .SetWidth(60);
 
     columns.Add(c => c.ModifiedOn)
            .Titled("Modified on")
@@ -57,6 +48,5 @@ columns.Add()
 }).WithPaging(10).Sortable().Filterable().WithMultipleFilters()
 
 <br />
-
 
 

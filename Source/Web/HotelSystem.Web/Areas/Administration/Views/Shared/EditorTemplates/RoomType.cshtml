@@ -1,0 +1,18 @@
+﻿@model Enum
+
+@{
+    var regex = new System.Text.RegularExpressions.Regex(@"
+                (?<=[A-Z])(?=[A-Z][a-z]) |
+                 (?<=[^A-Z])(?=[A-Z]) |
+                 (?<=[A-Za-z])(?=[^A-Za-z])", System.Text.RegularExpressions.RegexOptions.IgnorePatternWhitespace);
+
+    var values = Enum.GetValues(ViewData.ModelMetadata.ModelType).Cast<object>()
+             .Select(v => new SelectListItem
+             {
+                 Selected = v.Equals(Model),
+                 Text = string.Format("{0}", regex.Replace(((HotelSystem.Data.Models.RoomType)@Model).ToString(), " ")),
+                 Value = v.ToString()
+             });
+}
+
+@Html.DropDownList("roomTypes", values)

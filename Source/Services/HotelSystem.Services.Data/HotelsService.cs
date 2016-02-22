@@ -18,14 +18,37 @@
             this.identifierProvider = identifierProvider;
         }
 
+        public void CreateHotel(Hotel hotel)
+        {
+            this.hotels.Add(hotel);
+            this.hotels.SaveChanges();
+        }
+
         public IQueryable<Hotel> GetAll()
         {
             return this.hotels.All();
         }
 
+        public IQueryable<Hotel> GetAllWithDeleted()
+        {
+            return this.hotels.AllWithDeleted();
+        }
+
         public Hotel GetById(int id)
         {
             return this.hotels.GetById(id);
+        }
+
+        public void Update()
+        {
+            this.hotels.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            var hotel = this.hotels.GetById(id);
+            this.hotels.Delete(hotel);
+            this.hotels.SaveChanges();
         }
     }
 }

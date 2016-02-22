@@ -13,7 +13,7 @@
 
     using Microsoft.AspNet.Identity;
 
-    public class UsersController : BaseController
+    public class UsersController : AdminController
     {
         private IUsersService users;
 
@@ -29,6 +29,7 @@
                 .GetAllWithDeleted()
                 .OrderBy(u => u.Id)
                 .To<UserViewModel>();
+
             return this.View(allUsers);
         }
 
@@ -74,7 +75,15 @@
             }
 
             var user = this.users.GetById(model.Id);
-            this.Mapper.Map<User>(model);
+            if (user == null)
+            {
+                this.TempData["Error"] = ModelValidationErrors.EditDeletedEntity;
+                return this.RedirectToAction("Index");
+            }
+
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
+            user.PhoneNumber = model.PhoneNumber;
             this.users.Update();
 
             this.TempData["Success"] = "User was successful edited!";
