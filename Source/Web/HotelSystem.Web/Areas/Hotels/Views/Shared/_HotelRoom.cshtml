@@ -1,7 +1,7 @@
 ﻿@model HotelSystem.Web.Areas.Hotels.ViewModels.Details.HotelRoomViewModel
 
 <img class="custom-img" src="../../../@Model.Images.FirstOrDefault()" alt="" />
-<h4>@Model.RoomType</h4>
+<h4>@Html.DisplayFor(m => m.RoomType)</h4>
 <p>@Model.Description</p>
 <ul class="items">
     @if (Model.AirConditioning)

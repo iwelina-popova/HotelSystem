@@ -7,13 +7,13 @@
         {
             <span class="glyphicon glyphicon-star">@Model.Rating</span>
         }
-        @Html.ActionLink("Details", "HotelDetails", "Details", new { area = "Hotels" }, null)
+        @Html.ActionLink("Details", "HotelDetails", "Details", new { id = Model.Id }, null)
     </div>
     <h4>@Model.Name</h4>
     <p>
-        @if (Model.Description.Length > 100)
+        @if (Model.Description.Length > 300)
         {
-            @Model.Description.Substring(0, 100)
+            @Model.Description.Substring(0, 300)
             <span>...</span>
         }
         else

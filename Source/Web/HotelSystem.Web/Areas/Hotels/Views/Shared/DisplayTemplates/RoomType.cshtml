@@ -1,0 +1,11 @@
+﻿@model HotelSystem.Data.Models.RoomType
+
+@{
+    var regex = new System.Text.RegularExpressions.Regex(@"
+                (?<=[A-Z])(?=[A-Z][a-z]) |
+                 (?<=[^A-Z])(?=[A-Z]) |
+                 (?<=[A-Za-z])(?=[^A-Za-z])", System.Text.RegularExpressions.RegexOptions.IgnorePatternWhitespace); 
+}
+
+@string.Format("{0}", regex.Replace(((HotelSystem.Data.Models.RoomType)@Model).ToString(), " "))
+

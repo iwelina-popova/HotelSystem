@@ -95,6 +95,22 @@
       <HintPath>..\..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="nunit.core, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.core.interfaces, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.interfaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.util, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NUnitTestAdapter.2.0.0\lib\nunit.util.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NUnit.VisualStudio.TestAdapter, Version=2.0.0.0, Culture=neutral, PublicKeyToken=4cb40d35494691ac, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NUnitTestAdapter.2.0.0\lib\NUnit.VisualStudio.TestAdapter.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="RouteDebugger, Version=2.1.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\routedebugger.2.1.4.0\lib\net40\RouteDebugger.dll</HintPath>
       <Private>True</Private>
@@ -206,7 +222,17 @@
     <Compile Include="App_Start\SmsService.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Administration\Controllers\HotelsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\RoomsController.cs" />
     <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Hotels\HotelEditModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Hotels\HotelInputModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Hotels\HotelViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Rooms\RoomEditModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Rooms\RoomInputModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Rooms\RoomViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Rooms\RoomWithTypesEditModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Users\UserEditModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Users\UserInputModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Users\UserViewModel.cs" />
@@ -216,6 +242,9 @@
     <Compile Include="Areas\Hotels\ViewModels\Details\HotelRoomViewModel.cs" />
     <Compile Include="Areas\Hotels\ViewModels\All\HotelViewModel.cs" />
     <Compile Include="Areas\Hotels\ViewModels\Details\RoomViewModel.cs" />
+    <Compile Include="Areas\Profile\Controllers\AuthorizeController.cs" />
+    <Compile Include="Areas\Profile\Controllers\InfoController.cs" />
+    <Compile Include="Areas\Profile\ProfileAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -337,7 +366,6 @@
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\Shared\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Administration\Views\Users\Index.cshtml" />
     <Content Include="Areas\Hotels\Views\Shared\_HotelMainInfo.cshtml" />
     <Content Include="Areas\Hotels\Views\Shared\_HotelDetailsInfo.cshtml" />
@@ -345,6 +373,19 @@
     <Content Include="Grid.mvc.readme" />
     <Content Include="Areas\Administration\Views\Users\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\Users\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Hotels\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Hotels\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\Hotels\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Rooms\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Rooms\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\Rooms\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\DisplayTemplates\RoomType.cshtml" />
+    <Content Include="Areas\Hotels\Views\Shared\DisplayTemplates\RoomType.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\RoomType.cshtml" />
+    <Content Include="Areas\Profile\Views\web.config" />
+    <Content Include="Areas\Profile\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Profile\Views\Info\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\gridmvc.js" />
     <Content Include="Scripts\gridmvc.lang.ru.js" />
@@ -414,14 +455,19 @@
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
     <Content Include="Views\Shared\_LayoutGridmvc.cshtml" />
-    <Content Include="Views\Shared\FormatingTemplates\DateTimeTamplate.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\RoomType.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Double.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Decimal.cshtml" />
+    <Content Include="Views\Shared\_AdministrationNavbar.cshtml" />
+    <Content Include="Views\Shared\_UserNavbar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\Views\Bookings\" />
-    <Folder Include="Areas\Administration\Views\Home\" />
-    <Folder Include="Areas\Administration\Views\Hotels\" />
-    <Folder Include="Areas\Administration\Views\Rooms\" />
+    <Folder Include="Areas\Profile\ViewModels\" />
+    <Folder Include="Areas\Profile\Views\Authorize\" />
+    <Folder Include="Areas\Profile\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

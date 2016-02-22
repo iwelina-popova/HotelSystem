@@ -1,0 +1,38 @@
+﻿@model DateTime?
+@{
+    List<SelectListItem> days = new List<SelectListItem>();
+    for (int i = 1; i <= 31; i++)
+    {
+        days.Add(new SelectListItem
+        {
+            Text = i.ToString(),
+            Value = i.ToString()
+        });
+    }
+
+    List<SelectListItem> months = new List<SelectListItem>();
+    for (int i = 1; i <= 12; i++)
+    {
+        months.Add(new SelectListItem
+        {
+            Text = new DateTime(1, i, 1).ToString("MMMM"),
+            Value = i.ToString()
+        });
+    }
+
+    List<SelectListItem> years = new List<SelectListItem>();
+    var startYear = DateTime.UtcNow.Year - 100;
+    var endYear = DateTime.UtcNow.Year - 16;
+    for (int i = endYear; i >= startYear; i--)
+    {
+        years.Add(new SelectListItem
+        {
+            Text = i.ToString(),
+            Value = i.ToString()
+        });
+    }
+}
+
+@Html.DropDownList("days", days, new { @class = "arrival birth-date" })
+@Html.DropDownList("months", months, new { @class = "arrival birth-date" })
+@Html.DropDownList("years", years, new { @class = "arrival birth-date" })
