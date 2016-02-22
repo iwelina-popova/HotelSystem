@@ -15,44 +15,34 @@
     {
         private static Random random = new Random();
 
-        internal static void SeedUsers(HotelSystemDbContext context)
+        internal static void SeedAdmin(HotelSystemDbContext context)
         {
-            const string userPassword = "asdasd";
+            const string adminEmail = "admin@admin.com";
             const string adminPassword = "adminadmin";
 
-            if (context.Users.Any())
+            if (context.Users.Any(u => u.Email == adminEmail))
             {
                 return;
             }
 
-            var userManager = new UserManager<User>(new UserStore<User>(context));
-
-            var user = new User()
-            {
-                Email = "user@user.com",
-                FirstName = "First",
-                LastName = "Last",
-                BirthDate = new DateTime(1950, 2, 20),
-                PhoneNumber = "0888888888888"
-            };
-
-            userManager.Create(user, userPassword);
-
             var admin = new User()
             {
-                Email = "admin@admin.com",
+                Email = adminEmail,
+                UserName = adminEmail,
+                PasswordHash = new PasswordHasher().HashPassword(adminPassword),
                 FirstName = "Admin",
-                LastName = "Admin"
+                LastName = "Admin",
+                BirthDate = new DateTime(1950, 2, 20),
+                PhoneNumber = "0888888888888",
+                SecurityStamp = Guid.NewGuid().ToString()
             };
 
-            userManager.Create(admin, adminPassword);
+            var adminRole = new IdentityRole { Name = GlobalConstants.AdministratorRole, Id = Guid.NewGuid().ToString() };
+            context.Roles.AddOrUpdate(adminRole);
 
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-            roleManager.Create(new IdentityRole() { Name = GlobalConstants.AdministratorRole });
-            roleManager.Create(new IdentityRole() { Name = GlobalConstants.StandardUserRole });
-
-            userManager.AddToRoles(admin.Id, GlobalConstants.AdministratorRole, GlobalConstants.StandardUserRole);
-            userManager.AddToRole(user.Id, GlobalConstants.StandardUserRole);
+            admin.Roles.Add(new IdentityUserRole { RoleId = adminRole.Id, UserId = admin.Id });
+            context.Users.Add(admin);
+            context.SaveChanges();
         }
 
         internal static void SeedRooms(HotelSystemDbContext context)
@@ -260,6 +250,7 @@ our hotel was completely renovated in 2014 by Interior Design Architect Michel J
 The hotel is the epitome of Parisian elegance. A classical yet contemporary, refined space, with the feeling of a private apartment, where the quality of the décor, the sense of comfort, 
 the objets d'art and period pieces are paramount. We have aimed to make this hotel into our Home. Hence, welcome to your home. We are happy to make Fortune-Paris 4 **** your reference 
 address in Paris. Francine & Francois DAPREMONT - Owners.",
+                Stars = 4,
                 Phone = "+33 1 43 80 30 50",
                 Email = "fortune-paris@hotel.fr",
                 PhotosSource = new List<Image>()
@@ -267,10 +258,6 @@ address in Paris. Francine & Francois DAPREMONT - Owners.",
                     new Image()
                     {
                      Source = "Images/Hotel-Paris/Main/Hotel-Paris.jpg"
-                    },
-                    new Image()
-                    {
-                     Source = "Images/Hotel-Paris/Hotel-Paris.jpg"
                     },
                     new Image()
                     {
@@ -310,29 +297,26 @@ time our a-la carte menu from European gourmet cuisine. The lobby bar offers an 
 
 Hotel Residence Varna is the magnificent place for your business meetings, team buildings, cultural events and private parties. For meetings and seminars we offer a fully 
 equipped conference room for up to 20 persons.",
+                Stars = 3,
                 Phone = "+359 52 388 222",
                 Email = "office@residencevarna.bg",
                 PhotosSource = new List<Image>()
                 {
                     new Image()
                     {
-                     Source = "Images/Hote-Residence-Varna/Main/Residence-Varna.jpg"
+                     Source = "Images/Hotel-Residence-Varna/Main/Residence-Varna.jpg"
                     },
                     new Image()
                     {
-                     Source = "Images/Hote-Residence-Varna/Residence-Varna.jpg"
+                        Source = "Images/Hotel-Residence-Varna/1.jpg"
                     },
                     new Image()
                     {
-                        Source = "Images/Hote-Residence-Varna/1.jpg"
+                        Source = "Images/Hotel-Residence-Varna/buffet.jpg"
                     },
                     new Image()
                     {
-                        Source = "Images/Hote-Residence-Varna/buffet.jpg"
-                    },
-                    new Image()
-                    {
-                        Source = "Images/Hote-Residence-Varna/lobby.jpg"
+                        Source = "Images/Hotel-Residence-Varna/lobby.jpg"
                     }
                 }
             };
@@ -355,6 +339,7 @@ each bringing their most crave-worthy dish to the table.
 
 In a city that prides itself on never sleeping, the NewYork-Tower keeps guests connected with a state of the art iMac internet lounge and access to hi-speed wifi.
 Explore the very best of New York City – inside and outside the Row NYC hotel!",
+                Stars = 5,
                 Phone = "212-642-4631",
                 Email = "hotel@nytower.bg",
                 PhotosSource = new List<Image>()
@@ -365,23 +350,19 @@ Explore the very best of New York City – inside and outside the Row NYC hotel!
                     },
                     new Image()
                     {
-                     Source = "Images/Hotel-NewYork-Tower/NewYork-Tower.jpg"
+                     Source = "Images/Hotel-NewYork-Tower/1.jpg"
                     },
                     new Image()
                     {
-                     Source = "Images/Hotel-NewYork-Tower/Main/1.jpg"
+                     Source = "Images/Hotel-NewYork-Tower/ny.jpg"
                     },
                     new Image()
                     {
-                     Source = "Images/Hotel-NewYork-Tower/Main/ny.jpg"
+                     Source = "Images/Hotel-NewYork-Tower/c4.jpg"
                     },
                     new Image()
                     {
-                     Source = "Images/Hotel-NewYork-Tower/Main/c4.jpg"
-                    },
-                    new Image()
-                    {
-                     Source = "Images/Hotel-NewYork-Tower/Main/chambers.jpg"
+                     Source = "Images/Hotel-NewYork-Tower/chambers.jpg"
                     },
                 }
             };
@@ -412,32 +393,36 @@ Explore the very best of New York City – inside and outside the Row NYC hotel!
                 return;
             }
 
-            var hotel = context.Hotels.FirstOrDefault();
-
-            var count = 0;
-            while (count < 7)
+            var hotels = context.Hotels.ToList();
+            foreach (var hotel in hotels)
             {
-                var rooms = context.Rooms.Where(r => r.Type == (RoomType)count).ToList();
-
-                var j = 1;
-                for (int i = 1; i <= 10; i++)
+                var count = 0;
+                while (count < 7)
                 {
-                    hotel.Rooms.Add(new HotelRoom()
-                    {
-                        Room = rooms[0],
-                        RoomNumber = j + "0" + i
-                    });
+                    var rooms = context.Rooms.Where(r => r.Type == (RoomType)count).ToList();
 
-                    if (i % 5 == 0)
+                    var j = 1;
+                    for (int i = 1; i <= 10; i++)
                     {
-                        j++;
+                        hotel.Rooms.Add(new HotelRoom()
+                        {
+                            Room = rooms[0],
+                            RoomNumber = j + "0" + i
+                        });
+
+                        if (i % 5 == 0)
+                        {
+                            j++;
+                        }
                     }
+
+                    count++;
                 }
 
-                count++;
+                context.Hotels.AddOrUpdate(hotel);
+                context.SaveChanges();
             }
 
-            context.Hotels.AddOrUpdate(hotel);
             context.SaveChanges();
         }
     }
