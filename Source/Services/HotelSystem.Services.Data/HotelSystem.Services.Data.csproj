@@ -59,6 +59,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookingsService.cs" />
+    <Compile Include="Contracts\IBookingsService.cs" />
     <Compile Include="Contracts\IHotelRoomsService.cs" />
     <Compile Include="Contracts\IHotelsService.cs" />
     <Compile Include="Contracts\IHomeService.cs" />

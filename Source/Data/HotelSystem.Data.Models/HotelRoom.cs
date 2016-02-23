@@ -1,11 +1,19 @@
 ﻿namespace HotelSystem.Data.Models
 {
-    using System.ComponentModel.DataAnnotations;
+    using System.Collections.Generic;
 
+    using System.ComponentModel.DataAnnotations;
     using HotelSystem.Data.Common.Models;
 
     public class HotelRoom : BaseModel<int>
     {
+        private ICollection<Booking> bookings;
+
+        public HotelRoom()
+        {
+            this.bookings = new HashSet<Booking>();
+        }
+
         [Required]
         [MaxLength(10)]
         public string RoomNumber { get; set; }
@@ -23,5 +31,11 @@
         public int RoomId { get; set; }
 
         public virtual Room Room { get; set; }
+
+        public virtual ICollection<Booking> Bookings
+        {
+            get { return this.bookings; }
+            set { this.bookings = value; }
+        }
     }
 }

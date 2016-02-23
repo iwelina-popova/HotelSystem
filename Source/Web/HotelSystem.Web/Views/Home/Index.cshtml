@@ -2,94 +2,34 @@
     ViewBag.Title = "Home";
 }
 
-<div class="banner">
-    <div class="banner-info text-center">
-        <h3><label>Hello,</label> You've Reached</h3>
-        <h1>HOTEL FORTUNE</h1>
-        <span></span>
-        <ul>
-            <li><a class="scroll" href="#">HOTEL</a><i class="line"></i></li>
-            <li><a class="scroll" href="#">SPA SALOON</a><i class="line2"></i></li>
-            <li><a class="scroll" href="#">FINE DINING</a></li>
-            <div class="clearfix"></div>
-        </ul>
-    </div>
-</div>
-<div class="online_reservation">
-    <div class="b_room">
-        <div class="booking_room">
-            <div class="reservation">
-                <ul>
-                    <li class="span1_of_1 left">
-                        <h5>Arrival</h5>
-                        <div class="book_date">
-                            <form>
-                                <input class="date" id="datepicker" type="text" value="2/03/2016" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '2/03/2016';}">
-                            </form>
-                        </div>
-                    </li>
-                    <li class="span1_of_1 left">
-                        <h5>Depature</h5>
-                        <div class="book_date">
-                            <form>
-                                <input class="date" id="datepicker1" type="text" value="22/03/2016" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '22/03/2016';}">
-                            </form>
-                        </div>
-                    </li>
-                    <li class="span1_of_1">
-                        <h5>Room type</h5>
-                        <!----------start section_room----------->
-                        <div class="section_room">
-                            <select id="country" onchange="change_country(this.value)" class="frm-field required">
-                                <option value="null">Standard Single Room</option>
-                                <option value="null">Suite room</option>
-                                <option value="AX">Single room</option>
-                                <option value="AX">Double room</option>
-                            </select>
-                        </div>
-                    </li>
-                    <li class="span1_of_3">
-                        <div class="date_btn">
-                            <form>
-                                <input type="submit" value="View Prices" />
-                            </form>
-                        </div>
-                    </li>
-                    <div class="clearfix"></div>
-                </ul>
-            </div>
-        </div>
-        <div class="clearfix"></div>
-    </div>
-</div>
-<!---->
 <div class="package text-center">
     <div class="container">
-        <h3>Book A Package</h3>
+        <h3>Book A Hotel</h3>
         <p>
-            Sed euismod sem id consequat rutrum. Ut convallis lorem a orci mollis, eu vulputate libero aliquet. Praesent egestas nisi sed purus tincidunt faucibus. Aliquam lobortis orci lacus, sed faucibus augue dapibus vitae. Ut vitae mi sapien. Phasellus a eros justo.
-            Curabitur odio massa, tincidunt nec nibh sit amet
+            This are our hotels, have a look for more information and than book a room.
+            You can make a present for your family, your partner and for yourself of course.
+            It is our moto to make all of the guests happy. We will try to satisfy evry expectation.
         </p>
         <div id="owl-demo" class="owl-carousel">
             <div class="item text-center image-grid">
                 <ul>
-                    <li><img src="../../Images/1.jpg" alt=""></li>
-                    <li><img src="../../Images/2.jpg" alt=""></li>
-                    <li><img src="../../Images/3.jpg" alt=""></li>
+                    <li><a href="/Hotels/All"><img src="../../Images/Hotel-NewYork-Tower/1.jpg" alt="Liberty Statue"></a></li>
+                    <li><a href="/Hotels/All"><img src="../../Images/Hotel-NewYork-Tower/Main/NewYork-Tower.jpg" alt="New York Hotel"></a></li>
+                    <li><a href="/Hotels/All"><img src="../../Images/Hotel-NewYork-Tower/Rooms/GrandeSuite.jpg" alt=""></a></li>
                 </ul>
             </div>
             <div class="item text-center image-grid">
                 <ul>
-                    <li> <img src="../../Images/3.jpg" alt=""></li>
-                    <li><img src="../../Images/4.jpg" alt=""></li>
-                    <li><img src="../../Images/5.jpg" alt=""></li>
+                    <li><a href="/Hotels/All"><img src="../../Images/Hotel-Paris/Main/Hotel-Paris.jpg" alt=""></a></li>
+                    <li><a href="/Hotels/All"><img src="../../Images/Hotel-Paris/AifelTower.jpg" alt=""></a></li>
+                    <li><a href="/Hotels/All"><img src="../../Images/Hotel-Paris/Rooms/JuniorSuite.jpg" alt=""></a></li>
                 </ul>
             </div>
             <div class="item text-center image-grid">
                 <ul>
-                    <li> <img src="../../Images/6.jpg" alt=""></li>
-                    <li><img src="../../Images/2.jpg" alt=""></li>
-                    <li><img src="../../Images/8.jpg" alt=""></li>
+                    <li><a href="/Hotels/All"><img src="../../Images/Hotel-Residence-Varna/Main/Residence-Varna.jpg" alt=""></a></li>
+                    <li><a href="/Hotels/All"><img src="../../Images/Hotel-Residence-Varna/lobby.jpg" alt=""></a></li>
+                    <li><a href="/Hotels/All"><img src="../../Images/Hotel-Residence-Varna/Rooms/SuperiorSuite.jpg" alt=""></a></li>
                 </ul>
             </div>
         </div>
@@ -97,93 +37,7 @@
 </div>
 <!---->
 <!---->
-<div class="rooms text-center">
-    <div class="container">
-        <h3>Our Room Types</h3>
-        <div class="room-grids">
-            <div class="col-md-4 room-sec">
-                <img src="../../Images/pic1.jpg" alt="" />
-                <h4>Standard Double Room</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque lectus vitae dui sollicitudin commodo.</p>
-                <div class="items">
-                    <li><a href="#"><span class="img1"> </span></a></li>
-                    <li><a href="#"><span class="img2"> </span></a></li>
-                    <li><a href="#"><span class="img3"> </span></a></li>
-                    <li><a href="#"><span class="img4"> </span></a></li>
-                    <li><a href="#"><span class="img5"> </span></a></li>
-                    <li><a href="#"><span class="img6"> </span></a></li>
-                </div>
-            </div>
-            <div class="col-md-4 room-sec">
-                <img src="../../Images/pic2.jpg" alt="" />
-                <h4>Supperior Double Room</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque lectus vitae dui sollicitudin commodo.</p>
-                <div class="items">
-                    <li><a href="#"><span class="img1"> </span></a></li>
-                    <li><a href="#"><span class="img2"> </span></a></li>
-                    <li><a href="#"><span class="img3"> </span></a></li>
-                    <li><a href="#"><span class="img4"> </span></a></li>
-                    <li><a href="#"><span class="img5"> </span></a></li>
-                    <li><a href="#"><span class="img6"> </span></a></li>
-                </div>
-            </div>
-            <div class="col-md-4 room-sec">
-                <img src="../../Images/pic3.jpg" alt="" />
-                <h4>Family Room</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque lectus vitae dui sollicitudin commodo.</p>
-                <div class="items">
-                    <li><a href="#"><span class="img1"> </span></a></li>
-                    <li><a href="#"><span class="img2"> </span></a></li>
-                    <li><a href="#"><span class="img3"> </span></a></li>
-                    <li><a href="#"><span class="img4"> </span></a></li>
-                    <li><a href="#"><span class="img5"> </span></a></li>
-                    <li><a href="#"><span class="img6"> </span></a></li>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="col-md-4 room-sec">
-                <img src="../../Images/pic4.jpg" alt="" />
-                <h4>Standard Single Room</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque lectus vitae dui sollicitudin commodo.</p>
-                <div class="items">
-                    <li><a href="#"><span class="img1"> </span></a></li>
-                    <li><a href="#"><span class="img2"> </span></a></li>
-                    <li><a href="#"><span class="img3"> </span></a></li>
-                    <li><a href="#"><span class="img4"> </span></a></li>
-                    <li><a href="#"><span class="img5"> </span></a></li>
-                    <li><a href="#"><span class="img6"> </span></a></li>
-                </div>
-            </div>
-            <div class="col-md-4 room-sec">
-                <img src="../../Images/pic5.jpg" alt="" />
-                <h4>Supperior Single Room</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque lectus vitae dui sollicitudin commodo.</p>
-                <div class="items">
-                    <li><a href="#"><span class="img1"> </span></a></li>
-                    <li><a href="#"><span class="img2"> </span></a></li>
-                    <li><a href="#"><span class="img3"> </span></a></li>
-                    <li><a href="#"><span class="img4"> </span></a></li>
-                    <li><a href="#"><span class="img5"> </span></a></li>
-                    <li><a href="#"><span class="img6"> </span></a></li>
-                </div>
-            </div>
-            <div class="col-md-4 room-sec">
-                <img src="../../Images/pic6.jpg" alt="" />
-                <h4>VIP Room</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque lectus vitae dui sollicitudin commodo.</p>
-                <div class="items">
-                    <li><a href="#"><span class="img1"> </span></a></li>
-                    <li><a href="#"><span class="img2"> </span></a></li>
-                    <li><a href="#"><span class="img3"> </span></a></li>
-                    <li><a href="#"><span class="img4"> </span></a></li>
-                    <li><a href="#"><span class="img5"> </span></a></li>
-                    <li><a href="#"><span class="img6"> </span></a></li>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-</div>
+
 <!---->
 @section Fotter{
     <div class="fotter">

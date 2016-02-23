@@ -23,16 +23,22 @@
 
         public ActionResult HotelDetails(int id = 1)
         {
-            var hotel = this.hotels
-                .GetAll()
-                .To<HotelDetailsViewModel>()
-                .Where(h => h.Id == id)
-                .FirstOrDefault();
+            var hotel = this.Cache.Get(
+                    "hotel" + id,
+                    () => this.hotels
+                                .GetAll()
+                                .To<HotelDetailsViewModel>()
+                                .Where(h => h.Id == id)
+                                .FirstOrDefault(),
+                    24 * 60 * 60);
 
-            var hotelRooms = this.hotelRooms
-                .GetUniqueRoomTypesInHotel(hotel.Id)
-                .To<HotelRoomViewModel>()
-                .ToList();
+            var hotelRooms = this.Cache.Get(
+                "hotelRooms",
+                () => this.hotelRooms
+                            .GetUniqueRoomTypesInHotel(hotel.Id)
+                            .To<HotelRoomViewModel>()
+                            .ToList(),
+                24 * 60 * 60);
 
             var viewModel = new DetailsViewModel
             {

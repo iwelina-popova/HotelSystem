@@ -275,7 +275,7 @@ address in Paris. Francine & Francois DAPREMONT - Owners.",
             };
             var hotelParkVarna = new Hotel()
             {
-                Name = "Pesidence-Varna",
+                Name = "Residence-Varna",
                 Location = new Location()
                 {
                     Country = "Bulgaria",

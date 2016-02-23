@@ -7,7 +7,9 @@
 
     public class Booking : BaseModel<int>
     {
-        public DateTime BookedOn { get; set; }
+        public DateTime BookedFrom { get; set; }
+
+        public DateTime BookedTo { get; set; }
 
         public int HotelRoomsId { get; set; }
 
@@ -28,5 +30,9 @@
         [Required]
         [MaxLength(30)]
         public string Phone { get; set; }
+
+        [Required]
+        [MaxLength(16)]
+        public string CardNumber { get; set; }
     }
 }

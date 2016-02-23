@@ -15,31 +15,6 @@
     @RenderSection("styles", required: false)
 </head>
 <body>
-    <!--
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="@Url.Action("Index", "Home", new { area = string.Empty })">
-                    <img src="@Url.Content("~/Images/logo.png")" />
-                </a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @if (User.IsInRole("Administrator"))
-                    {
-                        @Html.Action("Menu", "Admin", routeValues: new { Area = "Administration", @class = "navbar-brand" })
-                    }
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
-     -->
     <div class="header">
         <div class="top-header">
             <div class="container">
@@ -54,7 +29,7 @@
                     <ul>
                         <li>@Html.ActionLink("About", "About", "Home", new { area = string.Empty }, null)</li>
                         <li>@Html.ActionLink("Hotels", "Index", "All", new { area = "Hotels" }, null)</li>
-                        <li>@Html.ActionLink("Booking", "Booking", new { area = string.Empty }, null)</li>
+                        <li>@Html.ActionLink("Booking", "Index", "Available", new { area = "Booking" }, null)</li>
                         <li>@Html.ActionLink("Contact us", "Contact", "Home", new { area = string.Empty }, null)</li>
                     </ul>
                     <script>

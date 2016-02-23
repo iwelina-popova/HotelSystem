@@ -223,9 +223,13 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Administration\Controllers\BookingsController.cs" />
     <Compile Include="Areas\Administration\Controllers\HotelsController.cs" />
     <Compile Include="Areas\Administration\Controllers\RoomsController.cs" />
     <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Bookings\BookingEditModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Bookings\BookingInputModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Bookings\BookingViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Hotels\HotelEditModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Hotels\HotelInputModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Hotels\HotelViewModel.cs" />
@@ -236,6 +240,15 @@
     <Compile Include="Areas\Administration\ViewModels\Users\UserEditModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Users\UserInputModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Users\UserViewModel.cs" />
+    <Compile Include="Areas\Booking\BookingAreaRegistration.cs" />
+    <Compile Include="Areas\Booking\Controllers\AvailableController.cs" />
+    <Compile Include="Areas\Booking\Controllers\BookHotelController.cs" />
+    <Compile Include="Areas\Booking\ViewModels\Available\BookingInfoViewModel.cs" />
+    <Compile Include="Areas\Booking\ViewModels\Available\BookingViewModel.cs" />
+    <Compile Include="Areas\Booking\ViewModels\Available\DataSelectorInputModel.cs" />
+    <Compile Include="Areas\Booking\ViewModels\Available\HotelNameViewModel.cs" />
+    <Compile Include="Areas\Booking\ViewModels\Available\HotelRoomViewModel.cs" />
+    <Compile Include="Areas\Booking\ViewModels\Available\ListRoomsViewModel.cs" />
     <Compile Include="Areas\Hotels\Controllers\AllController.cs" />
     <Compile Include="Areas\Hotels\HotelsAreaRegistration.cs" />
     <Compile Include="Areas\Hotels\ViewModels\Details\DetailsViewModel.cs" />
@@ -245,6 +258,9 @@
     <Compile Include="Areas\Profile\Controllers\AuthorizeController.cs" />
     <Compile Include="Areas\Profile\Controllers\InfoController.cs" />
     <Compile Include="Areas\Profile\ProfileAreaRegistration.cs" />
+    <Compile Include="Areas\Profile\ViewModels\Info\BookingViewModel.cs" />
+    <Compile Include="Areas\Profile\ViewModels\Info\InfoViewModel.cs" />
+    <Compile Include="Areas\Profile\ViewModels\Info\UserViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -379,13 +395,23 @@
     <Content Include="Areas\Administration\Views\Rooms\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Rooms\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\Rooms\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\DisplayTemplates\RoomType.cshtml" />
     <Content Include="Areas\Hotels\Views\Shared\DisplayTemplates\RoomType.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\RoomType.cshtml" />
     <Content Include="Areas\Profile\Views\web.config" />
     <Content Include="Areas\Profile\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Profile\Views\Info\Index.cshtml" />
+    <Content Include="Areas\Booking\Views\web.config" />
+    <Content Include="Areas\Booking\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Booking\Views\Available\List.cshtml" />
+    <Content Include="Areas\Booking\Views\Available\Index.cshtml" />
+    <Content Include="Areas\Booking\Views\Available\ViewPrices.cshtml" />
+    <Content Include="Areas\Profile\Views\Shared\_EmptyList.cshtml" />
+    <Content Include="Areas\Profile\Views\Shared\_UserGreeting.cshtml" />
+    <Content Include="Areas\Profile\Views\Shared\_BookingDisplay.cshtml" />
+    <Content Include="Areas\Administration\Views\Bookings\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Bookings\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Bookings\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\gridmvc.js" />
     <Content Include="Scripts\gridmvc.lang.ru.js" />
@@ -462,12 +488,14 @@
     <Content Include="Views\Shared\DisplayTemplates\Decimal.cshtml" />
     <Content Include="Views\Shared\_AdministrationNavbar.cshtml" />
     <Content Include="Views\Shared\_UserNavbar.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\String.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Int.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Price.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Profile\ViewModels\" />
-    <Folder Include="Areas\Profile\Views\Authorize\" />
-    <Folder Include="Areas\Profile\Views\Shared\" />
+    <Folder Include="Areas\Booking\Views\Book\" />
+    <Folder Include="Areas\Booking\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

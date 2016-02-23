@@ -43,7 +43,7 @@
                 var contact = this.Mapper.Map<Contact>(model);
                 this.contacts.AddContact(contact);
 
-                // TODO: Inform client information was successfully saved.
+                this.TempData["Success"] = "You contact with us successful!";
                 return this.RedirectToAction("Index");
             }
 

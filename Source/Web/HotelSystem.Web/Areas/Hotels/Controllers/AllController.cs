@@ -19,10 +19,13 @@
 
         public ActionResult Index()
         {
-            var allHotels = this.hotels
+            var allHotels = this.Cache.Get(
+                "allHotels",
+                () => this.hotels
                 .GetAll()
                 .To<HotelViewModel>()
-                .ToList();
+                .ToList(),
+                24 * 60 * 60);
 
             return this.View(allHotels);
         }
