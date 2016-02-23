@@ -1,0 +1,96 @@
+﻿@model HotelSystem.Web.Areas.Booking.ViewModels.Available.DataSelectorInputModel
+
+@{
+    ViewBag.Title = "Booking";
+}
+
+<div class="header">
+    <div class="banner">
+        <div class="banner-info text-center">
+            <h3><label>Hello,</label> You want to </h3>
+            <h1>BOOK</h1>
+            <span></span>
+            <ul>
+                <li><a class="scroll" href="#">HOTELS</a><i class="line"></i></li>
+                <li><a class="scroll" href="#">SPA SALOON</a><i class="line2"></i></li>
+                <li><a class="scroll" href="#">FINE DINING</a></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <br />
+        <br />
+        <div class="online_reservation">
+            <div class="b_room">
+                <div class="booking_room">
+                    @using (Html.BeginForm("ViewPrices", "Available", FormMethod.Post, new { role = "form" }))
+                    {
+                        List<SelectListItem> hotels = new List<SelectListItem>();
+                        foreach (var hotel in ViewBag.HotelsNames)
+                        {
+                            hotels.Add(new SelectListItem()
+                            {
+                                Text = hotel.Name,
+                                Value = hotel.Id.ToString()
+                            });
+                        }
+
+                        List<SelectListItem> capacity = new List<SelectListItem>();
+                        for (int i = 1; i <= 8; i++)
+                        {
+                            capacity.Add(new SelectListItem()
+                            {
+                                Text = i.ToString(),
+                                Value = i.ToString()
+                            });
+                        }
+                        <div class="reservation">
+                            <ul>
+
+                                <li class="span1_of_1 left">
+                                    <h5>Arrival</h5>
+                                        @Html.EditorFor(m => m.Arrival, new { htmlAttributes = new { @class = "textbox" } })
+                                </li>
+                                <li class="span1_of_1 left">
+                                    <h5>Departure</h5>
+                                    <div class="book_date">
+                                        @Html.EditorFor(m => m.Departure, new { htmlAttributes = new { @class = "textbox" } })
+                                    </div>
+                                </li>
+                                <li class="span1_of_1">
+                                    <h5>Hotel name</h5>
+                                    @Html.DropDownListFor(m => m.HotelName, hotels)
+                                </li>
+                                <li class="span1_of_1 capacity-width">
+                                    <h5>Capacity</h5>
+                                    @Html.DropDownListFor(m => m.Capacity, capacity)
+                                </li>
+                                <li class="span1_of_3">
+                                    <div class="date_btn">
+                                        <input id="view-prices" type="submit" value="View Prices" />
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    }
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $(".datepicker,#datepicker1").datepicker();
+        });
+
+        (function () {
+            JC.init({
+                domainKey: ''
+            });
+        })();
+    </script>
+}
+
+

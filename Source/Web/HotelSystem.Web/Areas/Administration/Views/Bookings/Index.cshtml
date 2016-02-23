@@ -1,0 +1,61 @@
+﻿@model IEnumerable<HotelSystem.Web.Areas.Administration.ViewModels.Bookings.BookingViewModel>
+@using GridMvc.Html
+
+@{
+    ViewBag.Title = "Administration - Booking";
+    Layout = "~/Views/Shared/_LayoutGridmvc.cshtml";
+}
+
+<div class="jumbotron">
+    <div class="text-center">
+        <h2>Administration - Hotels</h2>
+        @Html.ActionLink("Add New Booking", "Create", "Bookings", new { area = "Administration" }, new { @class = "btn btn-lg btn-info" })
+    </div>
+</div>
+
+@Html.Grid(Model).Columns(columns =>
+{
+columns.Add()
+       .Encoded(false)
+       .Sanitized(false)
+       .SetWidth(30)
+       .RenderValueAs(d =>
+    @<b>
+        @Html.ActionLink("Delete", "Delete", new { id = d.Id }, new { @class = "btn btn-danger" })
+        @Html.ActionLink("Edit", "Edit", new { id = d.Id }, new { @class = "btn btn-warning" })
+    </b>
+           );
+
+    columns.Add(c => c.HotelName)
+           .Titled("Hotel name")
+           .SetWidth(70);
+
+    columns.Add(c => c.RoomNumber)
+           .Titled("Room number")
+           .SetWidth(70);
+
+    columns.Add(c => c.BookedFrom)
+           .Titled("Booked from")
+           .SetWidth(100);
+
+    columns.Add(c => c.BookedTo)
+           .Titled("Booked to")
+           .SetWidth(60);
+
+    columns.Add(c => c.FirstName)
+           .Titled("First name")
+           .SetWidth(80);
+
+    columns.Add(c => c.LastName)
+           .Titled("Last name")
+           .SetWidth(80);
+
+    columns.Add(c => c.Phone)
+           .Titled("Phone")
+           .SetWidth(80);
+
+}).WithPaging(10).Sortable().Filterable().WithMultipleFilters()
+
+<br />
+
+

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<HotelSystem.Web.Areas.Profile.ViewModels.Info.BookingViewModel>
+@using GridMvc.Html
+
+@Html.Grid(Model).Columns(columns =>
+{
+columns.Add()
+       .Encoded(false)
+       .Sanitized(false)
+       .SetWidth(30);
+
+    columns.Add(c => c.HotelName)
+           .Titled("Hotel name")
+           .SetWidth(70);
+
+    columns.Add(c => c.RoomType)
+           .Titled("Room Type")
+           .SetWidth(70);
+
+    columns.Add(c => c.BookedFrom)
+           .Titled("Booked from")
+           .SetWidth(100);
+
+    columns.Add(c => c.BookedTo)
+           .Titled("Booked to")
+           .SetWidth(60);
+
+}).WithPaging(10).Sortable().Filterable().WithMultipleFilters()
+
+<br />

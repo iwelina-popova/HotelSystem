@@ -1,0 +1,183 @@
+﻿@model HotelSystem.Web.Areas.Booking.ViewModels.Available.BookingInfoViewModel
+@{
+    ViewBag.Title = "Available Rooms";
+}
+
+<div class="rooms text-center room-custom">
+    <h3>@ViewBag.Title</h3>
+    <div class="room-grids">
+        <div class="col-md-12">
+            <div class="col-md-2"></div>
+            <div class="col-md-3"><h4>Room Type</h4></div>
+            <div class="col-md-4"><h4>Room Description</h4></div>
+            <div class="col-md-2"><h4>Features</h4></div>
+        </div>
+        <hr />
+        <br />
+        <br />
+        @{
+            foreach (var room in Model.Rooms)
+            {
+                <div class="col-md-12 show-room">
+                    <div class="col-md-2">
+                        <img src="../../../@room.Room.Images.FirstOrDefault()" width="100%" />
+                    </div>
+                    <div class="col-md-3">
+                        <h2>@Html.DisplayFor(m => room.Room.RoomType)</h2>
+                        <div>Size: @Html.DisplayFor(m => room.Room.Size, "Int")</div>
+                        <div data-rleft="roomsLeft" data-id="@room.Room.RoomId">Rooms left: @room.Count</div>
+                        <div>Price: <h2>@Html.DisplayFor(m => room.Room.Price, "Price")</h2></div>
+                    </div>
+                    <div class="col-md-4">
+                        <p>@room.Room.Description</p>
+                    </div>
+                    <div class="col-md-2">
+                        <div>
+                            Beds:
+                            @{
+                                foreach (var bed in room.Room.Beds)
+                                {
+                                    <span>@bed </span>
+                                }
+                            }
+                        </div>
+                        @if (room.Room.AirConditioning)
+                        {
+                            <span>Air Conditioning, </span>
+                        }
+                        @if (room.Room.Balcom)
+                        {
+                            <span>Balcon, </span>
+                        }
+                        @if (room.Room.Bathroom)
+                        {
+                            <span>Bathroom, </span>
+                        }
+                        @if (room.Room.FreeWiFi)
+                        {
+                            <span>Free WiFi, </span>
+                        }
+                        @if (room.Room.HairDryer)
+                        {
+                            <span>Hair Dryer, </span>
+                        }
+                        @if (room.Room.Heating)
+                        {
+                            <span>Heating, </span>
+                        }
+                        @if (room.Room.Iron)
+                        {
+                            <span>Iron, </span>
+                        }
+                        @if (room.Room.Minibar)
+                        {
+                            <span>Minibar, </span>
+                        }
+                        @if (room.Room.Telephone)
+                        {
+                            <span>Telephone, </span>
+                        }
+                        @if (room.Room.TV)
+                        {
+                            <span>TV</span>
+                        }
+                    </div>
+                    <div class="col-md-1">
+                        <button data-action="booking" data-room="@room.Room.RoomId" class="btn btn-info">Book</button>
+                    </div>
+                </div>
+
+                <br />
+                                }
+        }
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="package" style="display: none">
+    <div class="container">
+        <h3 class="text-center">Booking</h3>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            <h5>FIRST NAME</h5>
+            <input type="text" id="first-name">
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            <h5>LAST NAME</h5>
+            <input type="text" id="last-name">
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            <h5>EMAIL</h5>
+            <input type="text" id="email">
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            <h5>CARD NUMBER</h5>
+            <input type="text" id="card-number">
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            <h5>PHONE</h5>
+            <input type="text" id="phone">
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            <h5>ARRIVAL</h5>
+            @Html.EditorFor(m => Model.Arrival)
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            <h5>DEPARTURE</h5>
+            @Html.EditorFor(m => Model.Departure)
+        </div>
+        <div class="col-md-8 col-md-offset-2 form-group">
+            <h5>REQUIRED</h5>
+            <textarea value=""></textarea>
+            <div class="col-md-8 col-md-offset-2 form-group">
+                <input type="submit" id="submit-booking" value="Submit" class="btn btn-default">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+
+        $('button[data-action="booking"').click(function(){
+            roomId = $(this).attr('data-room');
+            $('.package').show();
+        });
+
+        $('input#submit-booking').click(function () {
+            var hotelId = @Model.HotelId;
+
+            var firstName = $('#first-name').val();
+            var lastName = $('#last-name').val();
+            var email = $('#email').val();
+            var cardNumber = $('#card-number').val();
+            var phone = $('#phone').val();
+            var arrival = $('#Arrival').val();
+            var departure = $('#Departure').val();
+
+            if(firstName == null ||
+                lastName == null ||
+                email == null ||
+                cardNumber == null ||
+                phone == null ||
+                arrival == null ||
+                departure == null) {
+                alert("All fields are required!")
+            } else {
+                $.post("/BookHotel/Book",
+                    { hotelId: hotelId,
+                        roomId: roomId,
+                        firstName: firstName,
+                        lastName: lastName,
+                        email: email,
+                        cardNumber: cardNumber,
+                        phone: phone,
+                        arrival: arrival,
+                        departure: departure},
+                    function(data){
+                        $('.package').hide();
+                        $('div[data-rleft="roomsLeft"][data-id="' + data.Id + '"]').html("Room left: " +  data.Count);
+                    });
+            }
+        });
+    </script>
+}
+
