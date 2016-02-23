@@ -18,6 +18,7 @@
             this.bookings = bookingsService;
         }
 
+        [HttpPost]
         public ActionResult Book(
             int hotelId,
             int roomId,
