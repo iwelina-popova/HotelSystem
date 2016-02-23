@@ -51,6 +51,8 @@
                 .GetAllFreeRoomsInHotel(hotelId, roomId)
                 .Count();
 
+            this.TempData["Success"] = "Your booking finished successfully!";
+
             return this.Json(new { Count = freeRoomsLeft, Id = roomId });
         }
     }

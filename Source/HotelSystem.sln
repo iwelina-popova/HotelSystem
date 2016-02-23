@@ -29,9 +29,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{389B32
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelSystem.Common", "Common\HotelSystem.Common\HotelSystem.Common.csproj", "{C3CB0CCA-C8EB-46F4-A213-41E916922A47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelSystem.Web.Controllers.Tests", "HotelSystem.Web.Controllers.Tests\HotelSystem.Web.Controllers.Tests.csproj", "{B5719C05-4264-42CA-B697-5725184DF410}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelSystem.Web.Controllers.Tests", "Tests\HotelSystem.Web.Controllers.Tests\HotelSystem.Web.Controllers.Tests.csproj", "{B5719C05-4264-42CA-B697-5725184DF410}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelSystem.Web.Routes.Tests", "HotelSystem.Web.Routes.Tests\HotelSystem.Web.Routes.Tests.csproj", "{D7CCA01D-C0DB-4104-B529-71FC26F04E98}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelSystem.Web.Routes.Tests", "Tests\HotelSystem.Web.Routes.Tests\HotelSystem.Web.Routes.Tests.csproj", "{D7CCA01D-C0DB-4104-B529-71FC26F04E98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
