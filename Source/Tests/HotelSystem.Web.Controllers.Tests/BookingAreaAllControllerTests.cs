@@ -25,11 +25,13 @@ namespace HotelSystem.Web.Controllers.Tests
 
             var hotelServiceMock = new Mock<IHotelsService>();
             hotelServiceMock.Setup(x => x.GetAll())
-                .Returns(new List<Hotel>().AsQueryable());
-
+                .Returns(new List<Hotel>().AsQueryable);
+            
             var controller = new AllController(hotelServiceMock.Object);
             controller.WithCallTo(x => x.Index())
-                .ShouldRenderView("Index");
+                .ShouldRenderView("Index")
+                .WithModel<List<HotelViewModel>>()
+                .AndNoModelErrors();
         }
     }
 }

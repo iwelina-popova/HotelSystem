@@ -94,38 +94,38 @@
     </div>
 </div>
 <div class="package" style="display: none">
-    <div class="container">
+    <div class="container custom-form">
         <h3 class="text-center">Booking</h3>
         <div class="col-md-8 col-md-offset-2 form-group">
-            <h5>FIRST NAME</h5>
+            <label>FIRST NAME</label>
             <input type="text" id="first-name">
         </div>
         <div class="col-md-8 col-md-offset-2 form-group">
-            <h5>LAST NAME</h5>
+            <label>LAST NAME</label>
             <input type="text" id="last-name">
         </div>
         <div class="col-md-8 col-md-offset-2 form-group">
-            <h5>EMAIL</h5>
+            <label>EMAIL</label>
             <input type="text" id="email">
         </div>
         <div class="col-md-8 col-md-offset-2 form-group">
-            <h5>CARD NUMBER</h5>
+            <label>CARD NUMBER</label>
             <input type="text" id="card-number">
         </div>
         <div class="col-md-8 col-md-offset-2 form-group">
-            <h5>PHONE</h5>
+            <label>PHONE</label>
             <input type="text" id="phone">
         </div>
         <div class="col-md-8 col-md-offset-2 form-group">
-            <h5>ARRIVAL</h5>
+            <label>ARRIVAL</label>
             @Html.EditorFor(m => Model.Arrival)
         </div>
         <div class="col-md-8 col-md-offset-2 form-group">
-            <h5>DEPARTURE</h5>
+            <label>DEPARTURE</label>
             @Html.EditorFor(m => Model.Departure)
         </div>
         <div class="col-md-8 col-md-offset-2 form-group">
-            <h5>REQUIRED</h5>
+            <label>REQUIRED</label>
             <textarea value=""></textarea>
             <div class="col-md-8 col-md-offset-2 form-group">
                 <input type="submit" id="submit-booking" value="Submit" class="btn btn-default">
