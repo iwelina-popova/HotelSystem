@@ -28,6 +28,7 @@ namespace HotelSystem.Web.Controllers.Tests
             var hotelServiceMock = new Mock<IHotelsService>();
             Hotel hotelForTest = new Hotel()
             {
+                Id = 1,
                 Name = "Some name",
                 Description = "Some description",
                 Location = new Location() { Country = "Bulgaria", City = "Sofia", Address = "5th Street" },
@@ -38,16 +39,9 @@ namespace HotelSystem.Web.Controllers.Tests
                 .Returns(hotelForTest);
 
             var hotelRoomsServiceMock = new Mock<IHotelRoomsService>();
-            IList<HotelRoom> rooms = new List<HotelRoom>();
-            rooms.Add(new HotelRoom()
-            {
-                HotelId = hotelForTest.Id,
-                RoomId = 1,
-                RoomNumber = "101"
-            });
-
+            
             hotelRoomsServiceMock.Setup(x => x.GetUniqueRoomTypesInHotel(It.IsAny<int>()))
-                .Returns(rooms.AsQueryable);
+                .Returns(new List<HotelRoom>().AsQueryable());
 
             var controller = new DetailsController(hotelServiceMock.Object, hotelRoomsServiceMock.Object);
             var id = 1;

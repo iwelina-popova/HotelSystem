@@ -82,6 +82,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookingAreaAllControllerTests.cs" />
     <Compile Include="DetailsControllerTests.cs" />
     <Compile Include="HomeControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
