@@ -32,8 +32,3 @@ Hotel System Web - Mvc consists of four Areas for every single logic parts in th
  - Some data that don't change often are cached;
  - For dependency container is used Autofac and Automapper fo mapping;
 
-
-## Optional Requirements
-
-Application is hosted and can be find at: http://ivpopova.info/
-
